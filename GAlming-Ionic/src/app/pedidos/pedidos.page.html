@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Pedidos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-select type="text" name="tipo" placeholder="Elige uno tipo" id="combopedidos" (ionChange)="onChange($event.target.value)">     <!-- (ionChange)="onChange()" -->
+    <ion-select-option [value]="todo">Todo</ion-select-option>
+    <ion-select-option *ngFor="let tipo of tipos" [value]="tipo.id">{{ tipo.nombre }}</ion-select-option> <!--  [value]="alumno.idUsuario" -->
+  </ion-select>
+  <ion-list>
+    <ion-card *ngFor="let pedido of pedidos" class="welcome-card" (click)="info(pedido.id)">
+      <ion-img class="imgProductos" src="nohayfoto"></ion-img>
+      <ion-card-header>
+        <ion-card-title>{{ pedido.nombre }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>{{ pedido.precio }}€</p>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-virtual-scroll [items]="pedidos">
+      <ion-card *virtualItem="let pedido; let itemBounds = bounds;" (click)="info(pedido.id)">
+        <ion-img class="imgProductos" src="nohayfoto"></ion-img>
+        <ion-card-header>
+          <ion-card-title>{{ pedido.nombre }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <p>{{ pedido.precio }}€</p>
+        </ion-card-content>
+      </ion-card>
+    </ion-virtual-scroll>
+  </ion-list>
+</ion-content>
