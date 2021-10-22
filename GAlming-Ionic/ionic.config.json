@@ -1,0 +1,7 @@
+{
+  "name": "GAlming-Ionic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
