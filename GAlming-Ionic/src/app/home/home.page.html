@@ -9,24 +9,10 @@
     </ion-toolbar>
   </ion-item>
 
-  <ion-item class="routerTipoProducto" routerLink="">
-    <ion-label>Consolas</ion-label>
-  </ion-item>
-    <ion-slides [options]="{ slidesPerView: 'auto', zoom: true, grabCursor: true }">
-      <ion-slide *ngFor="let item of items">
-        <ion-col>
-          <ion-img src="https://almi.eus/wp-content/uploads/2018/06/logo-Almi.jpg"></ion-img>
-          <ion-label>{{ item }}</ion-label><br>
-          <ion-label>3€</ion-label>
+  <ion-list *ngFor="let tipo of tipoProducto">
+    <ion-item id="tipoProducto" routerLink="">{{tipo}}</ion-item>
 
-        </ion-col>
-      </ion-slide>
-    </ion-slides>
-
-    <ion-item class="routerTipoProducto">
-      <ion-label>Videojuegos</ion-label>
-    </ion-item>
-      <ion-slides [options]="{ slidesPerView: 'auto', zoom: false, grabCursor: true }">
+      <ion-slides [options]="{ slidesPerView: 'auto'}">
         <ion-slide *ngFor="let item of items">
           <ion-col>
             <ion-img src="https://almi.eus/wp-content/uploads/2018/06/logo-Almi.jpg"></ion-img>
@@ -36,19 +22,9 @@
           </ion-col>
         </ion-slide>
       </ion-slides>
+  </ion-list>
 
 
-      <ion-item class="routerTipoProducto">
-        <ion-label>Telefonia</ion-label>
-      </ion-item>
-        <ion-slides [options]="{ slidesPerView: 'auto', zoom: false, grabCursor: true }">
-          <ion-slide *ngFor="let item of items">
-            <ion-col>
-              <ion-img src="https://almi.eus/wp-content/uploads/2018/06/logo-Almi.jpg"></ion-img>
-              <ion-label>{{ item }}</ion-label><br>
-              <ion-label>3€</ion-label>
-    
-            </ion-col>
-          </ion-slide>
-        </ion-slides>
+
+
 </ion-content>

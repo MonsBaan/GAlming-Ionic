@@ -1,20 +1,27 @@
 ion-slide{
     width: 150px;
-    height: 100px;
-    padding: 25px;
+    height: 130px;
     font-size: 15px;
+}
+ion-slide ion-img{
+    width: 100px;
+    margin: 0px auto;
 }
 ion-toolbar ion-input{
     border: 1px solid rgb(151, 151, 151);
     border-radius: 20px;
     text-align: center;
 }
-
-.routerTipoProducto{
-    font-size: 20px;
-    color: rgb(35, 123, 255);
-}
-
 .ios ion-menu-button img{
     width: 30px;
+}
+#tipoProducto{
+    color: rgb(25, 59, 78);
+    font-weight: bold;
+    border-top: rgb(36, 84, 112) 2px solid;
+    border-bottom: rgb(36, 84, 112) 2px solid;
+    border-radius: 5px;
+}
+#tipoProducto ion-label{
+    margin: 5px;
 }
