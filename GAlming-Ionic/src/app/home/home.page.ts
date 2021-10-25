@@ -21,16 +21,13 @@ export class HomePage implements OnInit {
   tipoProducto = ["Videojuegos", "Consolas", "Telefonia", "Minecraft"]
 
   ngOnInit() {
-    localStorage.setItem("login", "0")
-    console.log(localStorage.getItem("login"))
-
-    /*if (localStorage.getItem("login")=="1") {
+    if (localStorage.getItem("login")=="1") {
       this.appComponent.menuLogged();
 
     }else{
       this.appComponent.menu();
 
-    }*/
+    }
   }
 
 
