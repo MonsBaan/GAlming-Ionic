@@ -5,22 +5,45 @@
 </ion-header>
 
 <ion-content>
+
+<p>
+    <img src="/assets/foto-persona.png">
+</p>
+<br>
+
+  <ion-button 
+    id="boton_editar"
+    expand="full"
+    color="primary"
+    (click)="mostrar()">
+      Editar datos
+  </ion-button>
+
   <ion-card>
-    <img src="">
+    <ion-label>Nombre</ion-label>
+    <ion-input type="text" value={{usuario.nombre}} disabled={{modo}}></ion-input>
+    <ion-label>Primer apellido</ion-label>
+    <ion-input type="text" value={{usuario.apellido1}} disabled={{modo}}></ion-input>
+    <ion-label>Segundo apellido</ion-label>
+    <ion-input type="text" value={{usuario.apellido2}} disabled={{modo}}></ion-input>
+    <ion-label>Contraseña</ion-label>
+    <ion-input type="text" value={{usuario.contrasena}} disabled={{modo}}></ion-input>
+    <ion-label>Dni</ion-label>
+    <ion-input type="text" value={{usuario.dni}} disabled={{modo}}></ion-input>
+    <ion-label>Direccion</ion-label>
+    <ion-input type="text" value={{usuario.direccion}} disabled={{modo}}></ion-input>
+    <ion-label>Email</ion-label>
+    <ion-input type="text" value={{usuario.email}} disabled={{modo}}></ion-input>
+    <ion-label>Ciudad</ion-label>
+    <ion-input type="text" value={{usuario.ciudad}} disabled={{modo}}></ion-input>
   </ion-card>
 
-  Nombre:
-  <ion-card>
-    <ion-label> {{usuario.nombre}}</ion-label>
-  </ion-card>
+  <ion-button
+    id="boton_enviar" 
+    expand="full"
+    color="primary"
+    (click)="enviar()">
+      Guardar cambios
+  </ion-button>
 
-  Apellido1:
-  <ion-card>
-    <ion-label> {{usuario.apellido}}</ion-label>
-  </ion-card>
-
-  Contraseña:
-  <ion-card>
-    <ion-label> {{usuario.contrasena}}</ion-label>
-  </ion-card>
 </ion-content>
