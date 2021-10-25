@@ -18,6 +18,7 @@ export class HomePage implements OnInit {
   "asafs","bafsaf","c","dwfafw","eawfafw","ffwaf","asafs","bafsaf","c","dwfafw","eawfafw",
   "ffwaf","asafs","bafsaf","c","dwfafw","eawfafw","ffwaf",];
 
+  tipos = ["Videojuegos", "Consolas", "Telefonia"]
 
   ngOnInit() {
     localStorage.setItem("login", "0")
