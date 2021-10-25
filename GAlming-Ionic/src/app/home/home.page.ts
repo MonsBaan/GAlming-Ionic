@@ -18,7 +18,7 @@ export class HomePage implements OnInit {
   "asafs","bafsaf","c","dwfafw","eawfafw","ffwaf","asafs","bafsaf","c","dwfafw","eawfafw",
   "ffwaf","asafs","bafsaf","c","dwfafw","eawfafw","ffwaf",];
 
-  tipoProducto = ["Videojuegos", "Consolas", "Telefonia", "Minecraft"]
+  tipoProducto = ["Videojuegos", "Consolas", "Telefonia"]
 
   ngOnInit() {
     if (localStorage.getItem("login")=="1") {

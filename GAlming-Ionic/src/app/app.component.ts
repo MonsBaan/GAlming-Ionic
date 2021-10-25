@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AlertController } from '@ionic/angular';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -12,24 +13,19 @@ export class AppComponent {
     {title: "Donde Estamos", url: "/donde-estamos"}, 
     {title: "Sobre Nosotros", url: "/sobre-nosotros"},
   ]
-  constructor() {
+  constructor(private alertController:AlertController) {
     this.menu();
     localStorage.setItem("login", "0");
   }
   
-
-
-
-
   public menu() {
     this.appPages = [
       { title: 'Inicio', url: '/home', icon: 'home' },
-      { title: 'Acceder', url: '/home', icon: 'key' },
+      { title: 'Acceder', url: '/login', icon: 'key' },
       { title: 'Registrarse', url: '/home', icon: 'person-add' },
 
     ];
   }
-
   public menuLogged() {
     this.appPages = [
       { title: 'Inicio', url: '/home', icon: 'home' },
@@ -39,4 +35,5 @@ export class AppComponent {
 
     ];
   }
+
 }
