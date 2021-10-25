@@ -18,6 +18,10 @@ const routes: Routes = [
   {
     path: 'pedido/:id',
     loadChildren: () => import('./pedidos-info/pedidos-info.module').then( m => m.PedidosInfoPageModule)
+  },
+  {
+    path: 'asistencia/:id',
+    loadChildren: () => import('./asistencia/asistencia.module').then( m => m.AsistenciaPageModule)
   }
 ];
 

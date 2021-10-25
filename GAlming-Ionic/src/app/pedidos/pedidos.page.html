@@ -8,9 +8,9 @@
 </ion-header>
 
 <ion-content>
-  <ion-select type="text" name="tipo" placeholder="Elige uno tipo" id="combopedidos" (ionChange)="onChange($event.target.value)">     <!-- (ionChange)="onChange()" -->
-    <ion-select-option [value]="todo">Todo</ion-select-option>
-    <ion-select-option *ngFor="let tipo of tipos" [value]="tipo.id">{{ tipo.nombre }}</ion-select-option> <!--  [value]="alumno.idUsuario" -->
+  <ion-select type="text" placeholder="Elige uno tipo" id="comboPedidos" (ionChange)="onChange($event.target.value)" value="Todo">
+    <ion-select-option>Todo</ion-select-option>
+    <ion-select-option *ngFor="let tipo of tipos" [value]="tipo.id">{{ tipo.nombre }}</ion-select-option>
   </ion-select>
   <ion-list>
     <ion-card *ngFor="let pedido of pedidos" class="welcome-card" (click)="info(pedido.id)">
@@ -23,8 +23,9 @@
       </ion-card-content>
     </ion-card>
 
+    <!-- lo mismo pero con ion scroll -->
     <ion-virtual-scroll [items]="pedidos">
-      <ion-card *virtualItem="let pedido; let itemBounds = bounds;" (click)="info(pedido.id)">
+      <ion-card *virtualItem="let pedido" (click)="info(pedido.id)">
         <ion-img class="imgProductos" src="nohayfoto"></ion-img>
         <ion-card-header>
           <ion-card-title>{{ pedido.nombre }}</ion-card-title>
@@ -35,4 +36,6 @@
       </ion-card>
     </ion-virtual-scroll>
   </ion-list>
+
+  <ion-label id="msgVacio" *ngIf="vacio">NO HAY PRODUCTOS</ion-label>
 </ion-content>

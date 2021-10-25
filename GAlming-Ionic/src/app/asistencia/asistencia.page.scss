@@ -1,0 +1,51 @@
+#msgNuevo {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  border: 1px solid #3880ff;
+}
+
+.mensaje {
+  width: 85%;
+  position: relative;
+  padding: 0px;
+}
+
+.msgfalse { //mensaje del usuario
+  left: 15%;
+}
+
+.msgtrue { //mensaje del trabajador
+  left: 0%;
+}
+
+.msgTexto {
+  padding: 5px;
+  border: 2px solid #3880ff;
+  border-radius: 5px;
+  width: 100%;
+}
+
+#false {  //texto mensaje del usuario
+  text-align: right;
+}
+
+#true { //texto mensaje el trabajador
+  text-align: left;
+}
+
+.direccion {
+  position: fixed;
+  color: #3880ff;
+  font-size: 20px;
+}
+
+#tra {  //flecha direccion trabajador
+  left: 0%;
+  text-align: left;
+}
+
+#usu {  //flecha direccion usuario
+  right: 0%;
+  text-align: right;
+}

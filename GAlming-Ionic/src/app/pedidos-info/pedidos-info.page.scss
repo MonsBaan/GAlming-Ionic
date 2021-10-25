@@ -4,3 +4,26 @@
   left: 25%;
   margin: 10px 0px;
 }
+
+ion-label {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+#descripcion {
+  text-align: justify;
+  margin: 0px 10px;
+}
+
+#nombreProd {
+  font-weight: bold;
+  padding-bottom: 15px;
+}
+
+#btnAsist {
+  width: 50%;
+  position: relative;
+  left: 25%;
+  margin-top: 25px;
+}

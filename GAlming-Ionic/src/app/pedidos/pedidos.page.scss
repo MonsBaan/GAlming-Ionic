@@ -1,15 +1,27 @@
 .imgProductos {
   width: 90px;
+  height: 100px;
   max-height: 100px;
   height: auto;
   float: right;
 }
 
-#combopedidos {
+#comboPedidos {
   position: relative;
   margin-top: 10px;
+  font-size: 20px;
 }
 
 ion-card-title, ion-card p {
   font-size: 18px;
+}
+
+#msgVacio {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: -20%;
+  color: grey;
+  font-size: 25px;
 }
