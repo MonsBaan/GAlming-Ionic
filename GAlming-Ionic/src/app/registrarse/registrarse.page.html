@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="Volver" src="../../assets/back.png"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-card-header>
+    <ion-label id="labelAcceder">Usuario Nuevo</ion-label><br>
+
+  </ion-card-header>
+  <ion-card-content>
+
+    <form (ngSubmit)="registrarse()">
+      <ion-label>DNI</ion-label>
+      <input type="text" [(ngModel)]="dni" name="dni"><br>
+      <ion-label>Nombre</ion-label>
+      <input type="text" [(ngModel)]="nombre" name="nombre"><br>
+      <ion-label>Apellido 1</ion-label>
+      <input type="text" [(ngModel)]="apellido1" name="apellido1"><br>
+      <ion-label>Apellido 2</ion-label>
+      <input type="text" [(ngModel)]="apellido2" name="apellido2"><br>
+      <ion-label>E-Mail</ion-label>
+      <input type="text" [(ngModel)]="email" name="email"><br>
+      <ion-label>Ciudad</ion-label>
+      <input type="text" [(ngModel)]="ciudad" name="ciudad"><br>
+      <ion-label>Direccion</ion-label>
+      <input type="text" [(ngModel)]="direccion" name="direccion"><br>
+      <ion-label>Contraseña</ion-label>
+      <input type="password" [(ngModel)]="pass" name="pass"><br><br>
+
+
+      <ion-button expand="full" type="submit">Enviar</ion-button>
+    </form>
+
+  </ion-card-content>
+
+
+</ion-content>

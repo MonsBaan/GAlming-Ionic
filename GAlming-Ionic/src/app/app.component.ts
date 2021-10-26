@@ -22,7 +22,7 @@ export class AppComponent {
     this.appPages = [
       { title: 'Inicio', url: '/home', icon: 'home' },
       { title: 'Acceder', url: '/login', icon: 'key' },
-      { title: 'Registrarse', url: '/home', icon: 'person-add' },
+      { title: 'Registrarse', url: '/registrarse', icon: 'person-add' },
 
     ];
   }
