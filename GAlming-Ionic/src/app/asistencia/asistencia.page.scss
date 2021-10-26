@@ -2,7 +2,7 @@
   position: fixed;
   bottom: 0px;
   width: 100%;
-  border: 1px solid #3880ff;
+  border-top: 3px solid #3880ff;
 }
 
 .mensaje {
@@ -48,4 +48,17 @@
 #usu {  //flecha direccion usuario
   right: 0%;
   text-align: right;
+}
+
+ion-list {
+  margin-bottom: 60px;
+}
+
+ion-content::part(scroll)::-webkit-scrollbar {
+display: none;
+}
+
+ion-content::part(scroll) {
+-ms-overflow-style: none;
+scrollbar-width: none;
 }

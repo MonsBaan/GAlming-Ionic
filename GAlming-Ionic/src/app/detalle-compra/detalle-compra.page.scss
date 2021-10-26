@@ -1,0 +1,71 @@
+#nomProducto {
+  font-weight: bold;
+  font-size: 25px;
+  padding: 10px 10px;
+  border-bottom: 3px solid #3880ff;
+  margin-bottom: 20px;
+}
+
+#imgProducto {
+  width: 60%;
+  position: relative;
+  left: 20%;
+  margin-bottom: 15px;
+}
+
+ion-label {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+#precioDescuento span {
+  text-decoration: line-through;
+  color: grey;
+}
+
+#btnServicio {
+  width: 90%;
+  position: relative;
+  left: 5%;
+  margin: 10px 0px;
+  font-weight: bold;
+}
+
+.precio {
+  font-size: 22px;
+}
+
+#descuento {
+  color: green;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+#stock {
+  justify-content: flex-end;
+  margin-bottom: 15px;
+  padding: 0px 10px;
+  color: #3880ff;
+}
+
+#descTitulo {
+  justify-content: flex-start;
+  margin: 0px 10px;
+  border-bottom: 2px solid #3880ff;
+  font-size: 18px;
+}
+
+#descripcion {
+  margin: 15px;
+  text-align: justify;
+}
+
+ion-content::part(scroll)::-webkit-scrollbar {
+display: none;
+}
+
+ion-content::part(scroll) {
+-ms-overflow-style: none;
+scrollbar-width: none;
+}

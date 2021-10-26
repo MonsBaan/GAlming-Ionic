@@ -13,17 +13,6 @@
     <ion-select-option *ngFor="let tipo of tipos" [value]="tipo.id">{{ tipo.nombre }}</ion-select-option>
   </ion-select>
   <ion-list>
-    <ion-card *ngFor="let pedido of pedidos" class="welcome-card" (click)="info(pedido.id)">
-      <ion-img class="imgProductos" src="nohayfoto"></ion-img>
-      <ion-card-header>
-        <ion-card-title>{{ pedido.nombre }}</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <p>{{ pedido.precio }}€</p>
-      </ion-card-content>
-    </ion-card>
-
-    <!-- lo mismo pero con ion scroll -->
     <ion-virtual-scroll [items]="pedidos">
       <ion-card *virtualItem="let pedido" (click)="info(pedido.id)">
         <ion-img class="imgProductos" src="nohayfoto"></ion-img>

@@ -17,7 +17,9 @@
   </ion-list>
 
   <ion-item id="msgNuevo">
-    <ion-input type="text" name="msg" [(ngModel)]="nuevoMensaje"></ion-input>
-    <ion-button color="primary" (click)="crearNuevoMensaje()" block>></ion-button>
+    <form (ngSubmit)="crearNuevoMensaje()">
+      <ion-input type="text" name="msg" [(ngModel)]="nuevoMensaje"></ion-input>
+    </form>
+    <ion-button color="primary" type="submit" block>></ion-button>
   </ion-item>
 </ion-content>

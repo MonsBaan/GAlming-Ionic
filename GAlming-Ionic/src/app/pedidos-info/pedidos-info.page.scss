@@ -5,25 +5,59 @@
   margin: 10px 0px;
 }
 
-ion-label {
+#nombreProd {
+  font-weight: bold;
+  font-size: 20px;
+  padding-bottom: 15px;
+}
+
+.centro {
   display: flex;
   justify-content: center;
   text-align: center;
 }
 
-#descripcion {
-  text-align: justify;
-  margin: 0px 10px;
+#fecha {
+  float: left;
+  width: 50%;
+  padding-left: 15px;
 }
 
-#nombreProd {
+#precio {
+  width: 50%;
+  padding-right: 15px;
+  display: flex;
+  justify-content: flex-end;
   font-weight: bold;
-  padding-bottom: 15px;
+  font-size: 20px;
+}
+
+#descTitulo {
+  border-top: 3px solid #3880ff;
+  text-align: justify;
+  margin: 10px;
+  padding-top: 10px;
+}
+
+#descripcion {
+  margin: 0px 15px;
+  margin-bottom: 75px;
+  text-align: justify;
 }
 
 #btnAsist {
   width: 50%;
-  position: relative;
+  position: fixed;
   left: 25%;
+  bottom: 20px;
   margin-top: 25px;
+}
+
+ion-content::part(scroll)::-webkit-scrollbar {
+display: none;
+}
+
+ion-content::part(scroll) {
+-ms-overflow-style: none;
+scrollbar-width: none;
 }

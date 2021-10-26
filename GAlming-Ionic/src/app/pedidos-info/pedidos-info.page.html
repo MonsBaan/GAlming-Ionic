@@ -9,28 +9,11 @@
 
 <ion-content>
   <ion-img id="imgProducto" src="nohayfoto"></ion-img>
-  <ion-label id="nombreProd">{{ pedido.nombre }}</ion-label>
-  <ion-label id="descripcion">Descripcion:</ion-label>
-  <ion-label class="ion-text-wrap">{{ pedido.descripcion }}</ion-label>
+  <ion-label class="centro" id="nombreProd">{{ pedido.nombre }}</ion-label>
+  <ion-label id="fecha">{{ pedido.fecha }}</ion-label>
+  <ion-label id="precio">{{ pedido.precio }}€</ion-label>
+  <ion-label class="centro" id="descTitulo">Descripcion del producto:</ion-label>
+  <ion-label class="centro" id="descripcion">{{ pedido.descripcion }}</ion-label>
 
-  <ion-grid>
-    <ion-row >
-      <ion-col>
-        <ion-label>Precio:</ion-label>
-      </ion-col>
-      <ion-col>
-        <ion-label>{{ pedido.precio }}€</ion-label>
-      </ion-col>
-    </ion-row>
-    <ion-row >
-      <ion-col>
-        <ion-label>Fecha de compra:</ion-label>
-      </ion-col>
-      <ion-col>
-        <ion-label>{{ pedido.fecha }}</ion-label>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-  
   <ion-button id="btnAsist" color="primary" (click)="btnAsist()">Asistencia</ion-button>
 </ion-content>

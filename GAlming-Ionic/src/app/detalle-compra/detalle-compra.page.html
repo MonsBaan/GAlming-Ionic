@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Info Compra</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-label id="nomProducto">{{ producto.nombre }}</ion-label>
+  <ion-img src="producto.foto" id="imgProducto"></ion-img>
+
+  <ion-button expand="full" id="btnServicio" color="primary" (click)="btn()">tiposervicio</ion-button>
+
+  <ion-label *ngIf="producto.descuento == 0 || producto.descuento == null" class="precio">{{ producto.precio }}€</ion-label>
+  <ion-label *ngIf="producto.descuento != 0 && producto.descuento != null" class="precio" id="precioDescuento"><span>{{ producto.precio }}€</span>---{{ precioDescuento }}€</ion-label>
+  <ion-label *ngIf="producto.descuento != 0 && producto.descuento != null" id="descuento">-{{ producto.descuento }}%</ion-label>
+
+  <ion-label id="stock">{{ producto.stock }} en stock</ion-label>
+  <ion-label id="descTitulo">Descripcion:</ion-label>
+  <ion-label id="descripcion">{{ producto.descripcion }}</ion-label>
+
+</ion-content>
