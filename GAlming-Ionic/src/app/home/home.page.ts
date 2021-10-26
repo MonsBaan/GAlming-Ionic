@@ -7,6 +7,7 @@ import { AppComponent } from '../app.component';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
+  fotoPerfil = this.appComponent.fotoPerfil;
 
   constructor(private appComponent:AppComponent) { }
   items = ["asafs","bafsaf","c","dwfafw","eawfafw","ffwaf","asafs","bafsaf",

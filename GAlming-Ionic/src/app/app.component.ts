@@ -7,6 +7,7 @@ import { AlertController } from '@ionic/angular';
 })
 export class AppComponent {
   public appPages = [];
+  fotoPerfil = "https://almi.eus/wp-content/uploads/2018/06/logo-Almi.jpg"
 
   public labels = [
     {title: "Galeria", url: "/galeria"}, 
