@@ -13,7 +13,8 @@ export class LoginPage implements OnInit {
   }
 
   login(){
-    console.log("login")
+    console.log(this.geolocation.getCurrentPosition());
+
   }
 
 }
