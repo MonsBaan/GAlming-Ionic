@@ -7,14 +7,6 @@ const routes: Routes = [
   {
     path: '',
     component: ComprasPage
-  },
-  {
-    path: 'compras',
-    loadChildren: () => import('./compras/compras.module').then( m => m.ComprasPageModule)
-  },
-  {
-    path: 'alquiler',
-    loadChildren: () => import('./alquiler/alquiler.module').then( m => m.AlquilerPageModule)
   }
 ];
 
