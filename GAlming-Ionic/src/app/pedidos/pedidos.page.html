@@ -14,7 +14,7 @@
   </ion-select>
   <ion-list>
     <ion-virtual-scroll [items]="pedidos">
-      <ion-card *virtualItem="let pedido" (click)="info(pedido.id)">
+      <ion-card *virtualItem="let pedido" (click)="info(pedido)">
         <ion-img class="imgProductos" src="nohayfoto"></ion-img>
         <ion-card-header>
           <ion-card-title>{{ pedido.nombre }}</ion-card-title>

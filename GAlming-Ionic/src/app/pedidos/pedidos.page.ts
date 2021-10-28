@@ -16,16 +16,17 @@ export class PedidosPage implements OnInit {
   }
 
   ngOnInit() {
-    this.pedidos = [{ 'id': 1, 'nombre': 'Producto1', 'precio': 12}, { 'id': 2, 'nombre': 'Producto2', 'precio': 50}, { 'id': 3, 'nombre': 'Producto3', 'precio': 1}];
+    this.pedidos = [{ 'id': 1, 'nombre': 'Producto1', 'descripcion': 'asdasd', 'precio': 12, 'fecha': '00-00-0000'}, { 'id': 2, 'nombre': 'Producto2', 'descripcion': 'asdasd', 'precio': 50, 'fecha': '00-00-0000'}, { 'id': 3, 'nombre': 'Producto3', 'descripcion': 'asdasd', 'precio': 1, 'fecha': '00-00-0000'}];
   }
 
-  info(id) {
-    this.router.navigateByUrl('/pedido/' + id);
+  info(pedido) {
+    localStorage.setItem("pedido", JSON.stringify(pedido));
+    this.router.navigateByUrl('/pedido');
   }
 
   onChange(idElegido) {
     if (idElegido == "Todo") {
-      this.pedidos = [{ 'id': 1, 'nombre': 'Producto1', 'precio': 12}, { 'id': 2, 'nombre': 'Producto2', 'precio': 50}, { 'id': 3, 'nombre': 'Producto3', 'precio': 1}];
+      this.pedidos = [{ 'id': 1, 'nombre': 'Producto1', 'descripcion': 'asdasd', 'precio': 12, 'fecha': '00-00-0000'}, { 'id': 2, 'nombre': 'Producto2', 'descripcion': 'asdasd', 'precio': 50, 'fecha': '00-00-0000'}, { 'id': 3, 'nombre': 'Producto3', 'descripcion': 'asdasd', 'precio': 1, 'fecha': '00-00-0000'}];
       this.vacio = false;
     }else {
       this.pedidos = [];

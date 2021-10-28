@@ -16,7 +16,7 @@ const routes: Routes = [
     loadChildren: () => import('./pedidos/pedidos.module').then( m => m.PedidosPageModule)
   },
   {
-    path: 'pedido/:idServicio',
+    path: 'pedido',
     loadChildren: () => import('./pedidos-info/pedidos-info.module').then( m => m.PedidosInfoPageModule)
   },
   {

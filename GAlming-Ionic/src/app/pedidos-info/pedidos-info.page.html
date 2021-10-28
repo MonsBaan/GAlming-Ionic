@@ -12,8 +12,8 @@
   <ion-label class="centro" id="nombreProd">{{ pedido.nombre }}</ion-label>
   <ion-label id="fecha">{{ pedido.fecha }}</ion-label>
   <ion-label id="precio">{{ pedido.precio }}€</ion-label>
-  <ion-label class="centro" id="descTitulo">Descripcion del producto:</ion-label>
-  <ion-label class="centro" id="descripcion">{{ pedido.descripcion }}</ion-label>
+  <ion-label class="centro" (click)="desc()" id="descTitulo">Descripcion del producto: {{ flecha }}</ion-label>
+  <ion-label *ngIf="verDesc" class="centro" id="descripcion">{{ pedido.descripcion }}</ion-label>
 
   <ion-button id="btnAsist" color="primary" (click)="btnAsist()">Asistencia</ion-button>
 </ion-content>
