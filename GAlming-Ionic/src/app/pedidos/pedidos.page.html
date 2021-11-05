@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Pedidos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-select type="text" placeholder="Elige uno tipo" id="comboPedidos" (ionChange)="onChange($event.target.value)" value="Todo">
+    <ion-select-option>Todo</ion-select-option>
+    <ion-select-option *ngFor="let tipo of tipos" [value]="tipo.tipoServId">{{ tipo.tipoServNombre }}</ion-select-option>
+  </ion-select>
+  <ion-list>
+    <ion-virtual-scroll [items]="pedidos">
+      <ion-card *virtualItem="let pedido" (click)="info(pedido)">
+        <ion-img class="imgProductos" [src]="pedido.servProducto.prodFoto"></ion-img>
+        <ion-card-header>
+          <ion-card-title>{{ pedido.servProducto.prodNombre }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <p>{{ pedido.servPrecioCompra }}€</p>
+        </ion-card-content>
+      </ion-card>
+    </ion-virtual-scroll>
+  </ion-list>
+
+  <ion-label id="msgVacio" *ngIf="pedidos?.length == 0 || pedidos?.length == undefined">NO HAY SERVICIOS</ion-label>
+</ion-content>

@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Info Pedido</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-img id="imgProducto" [src]="pedido.servProducto.prodFoto"></ion-img>
+  <ion-label class="centro" id="nombreProd">{{ pedido.servProducto.prodNombre }}</ion-label>
+  <ion-label id="fecha">{{ pedido.servFecha }}</ion-label>
+  <ion-label id="precio">{{ pedido.servPrecioCompra }}€</ion-label>
+  <ion-label class="centro" (click)="desc()" id="descTitulo">Descripcion del producto: {{ flecha }}</ion-label>
+  <ion-label *ngIf="verDesc" class="centro" id="descripcion">{{ pedido.servProducto.prodDescripcion }}</ion-label>
+
+  <ion-button id="btnAsist" color="primary" (click)="btnAsist()">ASISTENCIA</ion-button>
+</ion-content>

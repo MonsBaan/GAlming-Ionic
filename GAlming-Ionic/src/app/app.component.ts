@@ -16,7 +16,7 @@ export class AppComponent {
   ]
   constructor(private alertController:AlertController) {
     this.menu();
-    localStorage.setItem("login", "0");
+    localStorage.setItem("login", "1");
   }
   
   public menu() {
@@ -31,7 +31,8 @@ export class AppComponent {
     this.appPages = [
       { title: 'Inicio', url: '/home', icon: 'home' },
       { title: 'Perfil', url: '/home', icon: 'person' },
-      { title: 'Pedidos', url: '/home', icon: 'archive' },
+      { title: 'detallecompra', url: '/detalle-compra/1', icon: 'home' },
+      { title: 'Pedidos', url: '/pedidos', icon: 'paper-plane' },
       { title: 'Cerrar Sesion', url: '/home', icon: 'log-out' },
 
     ];

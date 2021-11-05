@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Asistencia</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [scrollEvents]="true">
+  <ion-list>
+    <ion-item *ngFor="let msg of mensajes" class="mensaje msg{{msg.EsTrabajador}}" lines="none">
+      <ion-label class="ion-text-wrap msgTexto" id="{{msg.EsTrabajador}}">{{ msg.Mensaje }}</ion-label>
+      <ion-label *ngIf="msg.EsTrabajador" id="tra" class="direccion"><</ion-label>
+      <ion-label *ngIf="msg.EsTrabajador == false" id="usu" class="direccion">></ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-item id="msgNuevo">
+    <form (ngSubmit)="crearNuevoMensaje()">
+      <ion-input id="inputMsg" type="text" name="msg" [(ngModel)]="nuevoMensaje"></ion-input>
+    </form>
+    <ion-button id="btn" color="primary" type="submit" (click)="crearNuevoMensaje()" block>></ion-button>
+  </ion-item>
+</ion-content>
