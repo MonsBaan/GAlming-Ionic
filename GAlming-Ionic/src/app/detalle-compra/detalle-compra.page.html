@@ -8,17 +8,17 @@
 </ion-header>
 
 <ion-content>
-  <ion-label id="nomProducto">{{ producto.nombre }}</ion-label>
-  <ion-img src="producto.foto" id="imgProducto"></ion-img>
+  <ion-label id="nomProducto">{{ producto[0]?.prodNombre }}</ion-label>
+  <ion-img [src]="producto[0]?.prodFoto" id="imgProducto"></ion-img>
 
-  <ion-button expand="full" id="btnServicio" color="primary" (click)="btn()">tiposervicio</ion-button>
+  <ion-label id="stock">{{ producto[0]?.opProdStock }} en stock</ion-label>
+  <ion-button expand="full" id="btnServicio" color="primary" (click)="btn()">COMPRAR</ion-button>
 
-  <ion-label *ngIf="producto.descuento == 0 || producto.descuento == null" class="precio">{{ producto.precio }}€</ion-label>
-  <ion-label *ngIf="producto.descuento != 0 && producto.descuento != null" class="precio" id="precioDescuento"><span>{{ producto.precio }}€</span>---{{ precioDescuento }}€</ion-label>
-  <ion-label *ngIf="producto.descuento != 0 && producto.descuento != null" id="descuento">-{{ producto.descuento }}%</ion-label>
+  <ion-label *ngIf="producto[0]?.opProdDescuento == 0 || producto[0]?.opProdDescuento == null" class="precio">{{ producto[0]?.opProdPrecio }}€</ion-label>
+  <ion-label *ngIf="producto[0]?.opProdDescuento != 0 && producto[0]?.opProdDescuento != null" class="precio" id="precioDescuento"><span>{{ producto[0]?.opProdPrecio }}€</span>---{{ precioDescuento }}€</ion-label>
+  <ion-label *ngIf="producto[0]?.opProdDescuento != 0 && producto[0]?.opProdDescuento != null" id="descuento">-{{ producto[0]?.opProdDescuento }}%</ion-label>
 
-  <ion-label id="stock">{{ producto.stock }} en stock</ion-label>
   <ion-label id="descTitulo">Descripcion:</ion-label>
-  <ion-label id="descripcion">{{ producto.descripcion }}</ion-label>
+  <ion-label id="descripcion">{{ producto[0]?.prodDescripcion }}</ion-label>
 
 </ion-content>

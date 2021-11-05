@@ -8,12 +8,12 @@
 </ion-header>
 
 <ion-content>
-  <ion-img id="imgProducto" src="nohayfoto"></ion-img>
-  <ion-label class="centro" id="nombreProd">{{ pedido.nombre }}</ion-label>
-  <ion-label id="fecha">{{ pedido.fecha }}</ion-label>
-  <ion-label id="precio">{{ pedido.precio }}€</ion-label>
+  <ion-img id="imgProducto" [src]="pedido.servProducto.prodFoto"></ion-img>
+  <ion-label class="centro" id="nombreProd">{{ pedido.servProducto.prodNombre }}</ion-label>
+  <ion-label id="fecha">{{ pedido.servFecha }}</ion-label>
+  <ion-label id="precio">{{ pedido.servPrecioCompra }}€</ion-label>
   <ion-label class="centro" (click)="desc()" id="descTitulo">Descripcion del producto: {{ flecha }}</ion-label>
-  <ion-label *ngIf="verDesc" class="centro" id="descripcion">{{ pedido.descripcion }}</ion-label>
+  <ion-label *ngIf="verDesc" class="centro" id="descripcion">{{ pedido.servProducto.prodDescripcion }}</ion-label>
 
-  <ion-button id="btnAsist" color="primary" (click)="btnAsist()">Asistencia</ion-button>
+  <ion-button id="btnAsist" color="primary" (click)="btnAsist()">ASISTENCIA</ion-button>
 </ion-content>

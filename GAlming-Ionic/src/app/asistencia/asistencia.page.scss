@@ -12,7 +12,13 @@
 }
 
 #inputMsg {
-  width: 100%;
+  max-width: 90%;
+}
+
+#btn {
+  position: fixed;
+  right: 5%;
+  width: 10%;
 }
 
 .msgfalse { //mensaje del usuario
@@ -28,14 +34,19 @@
   border: 2px solid #3880ff;
   border-radius: 5px;
   width: 100%;
+  font-size: 18px;
+  color: white;
 }
 
 #false {  //texto mensaje del usuario
   text-align: right;
+  background-color: var(--ion-color-primary);
 }
 
 #true { //texto mensaje el trabajador
   text-align: left;
+  background-color: #34495e;
+  border-color: #34495e;
 }
 
 .direccion {
@@ -46,6 +57,7 @@
 
 #tra {  //flecha direccion trabajador
   left: 0%;
+  color: #34495e;
   text-align: left;
 }
 
@@ -55,7 +67,7 @@
 }
 
 ion-list {
-  margin-bottom: 60px;
+  margin-bottom: 100px;
 }
 
 ion-content::part(scroll)::-webkit-scrollbar {

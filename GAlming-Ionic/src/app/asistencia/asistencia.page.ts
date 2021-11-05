@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute } from "@angular/router";
+import { ServService } from "./../servicios/serv.service";
+import { IonContent } from '@ionic/angular';
 
 @Component({
   selector: 'app-asistencia',
@@ -6,20 +9,48 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./asistencia.page.scss'],
 })
 export class AsistenciaPage implements OnInit {
+  @ViewChild(IonContent, { static: false }) content: IonContent;
 
-  mensajes = [{ 'texto': 'asjdbasdkjsbadkj basdkjb dkjsbakjsd', 'esTrabajador': false}, { 'texto': 'asdasda asd adasdasd aaaaaaasd', 'esTrabajador': true}, { 'texto': 'asdas adik asdkla basdaasd', 'esTrabajador': true}];
+  mensajes;
   nuevoMensaje;
-  idProd;
+  idServicio;
 
-  constructor() { }
+  constructor(private servicio: ServService, private route: ActivatedRoute) { }
+
+  async getMensajes() {
+    await this.servicio.getMensajes(this.idServicio)
+      .subscribe(res => {
+        this.mensajes = res;
+        //this.mensajes.splice(0, 1);
+      }, err => {
+        console.log(err);
+      })
+  }
+
+  async postMensaje(info) {
+    await this.servicio.postMensaje(info)
+      .subscribe(res => {
+        this.mensajes = res;
+        this.getMensajes();
+      }, err => {
+        console.log(err);
+      })
+  }
 
   ngOnInit() {
+    this.route.paramMap.subscribe(params => {
+      this.idServicio = params["params"]["idServicio"];
+    });
+
+    this.getMensajes();
   }
 
   crearNuevoMensaje() {
     if (this.nuevoMensaje != null && this.nuevoMensaje != "") {
-      this.mensajes.push({ 'texto': this.nuevoMensaje, 'esTrabajador': false});
+      this.postMensaje({'mensaje': this.nuevoMensaje, 'servicio': 1});
       this.nuevoMensaje = "";
+
+      this.content.scrollToBottom(200);
     }
   }
 

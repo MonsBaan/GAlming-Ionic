@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
+import { ServService } from "./../servicios/serv.service";
+import { LoadingController } from "@ionic/angular";
 
 @Component({
   selector: 'app-pedidos',
@@ -8,15 +10,57 @@ import { Router } from "@angular/router";
 })
 export class PedidosPage implements OnInit {
 
-  tipos = [{ 'id': 1, 'nombre': 'Compra'}, { 'id': 2, 'nombre': 'Alquiler'}, { 'id': 3, 'nombre': '???'}];
+  tipos;
   pedidos;
-  vacio = false
+  vacio = false;
 
-  constructor(private router: Router) {
+  constructor(private servicio: ServService, private router: Router, public loadingController: LoadingController) {
   }
 
   ngOnInit() {
-    this.pedidos = [{ 'id': 1, 'nombre': 'Producto1', 'descripcion': 'asdasd', 'precio': 12, 'fecha': '00-00-0000'}, { 'id': 2, 'nombre': 'Producto2', 'descripcion': 'asdasd', 'precio': 50, 'fecha': '00-00-0000'}, { 'id': 3, 'nombre': 'Producto3', 'descripcion': 'asdasd', 'precio': 1, 'fecha': '00-00-0000'}];
+    this.getTodosPedidos();
+    this.getTipos();
+  }
+
+  async getTodosPedidos() {
+    const loading = await this.loadingController.create({
+      message: 'Cargando...'
+    });
+
+    await loading.present();
+    await this.servicio.getPedidos("5") //id usuario
+      .subscribe(res => {
+        this.pedidos = res;
+        loading.dismiss();
+      }, err => {
+        console.log(err);
+        loading.dismiss();
+      })
+  }
+
+  async getPedidosTipo(idTipo) {
+    const loading = await this.loadingController.create({
+      message: 'Cargando...'
+    });
+
+    await loading.present();
+    await this.servicio.getPedidosTipo(idTipo, "5") //id usuario
+      .subscribe(res => {
+        this.pedidos = res;
+        loading.dismiss();
+      }, err => {
+        console.log(err);
+        loading.dismiss();
+      })
+  }
+
+  async getTipos() {
+    await this.servicio.getTiposServicios()
+      .subscribe(res => {
+        this.tipos = res;
+      }, err => {
+        console.log(err);
+      })
   }
 
   info(pedido) {
@@ -26,14 +70,9 @@ export class PedidosPage implements OnInit {
 
   onChange(idElegido) {
     if (idElegido == "Todo") {
-      this.pedidos = [{ 'id': 1, 'nombre': 'Producto1', 'descripcion': 'asdasd', 'precio': 12, 'fecha': '00-00-0000'}, { 'id': 2, 'nombre': 'Producto2', 'descripcion': 'asdasd', 'precio': 50, 'fecha': '00-00-0000'}, { 'id': 3, 'nombre': 'Producto3', 'descripcion': 'asdasd', 'precio': 1, 'fecha': '00-00-0000'}];
-      this.vacio = false;
+      this.getTodosPedidos();
     }else {
-      this.pedidos = [];
-      this.vacio = true;
+      this.getPedidosTipo(idElegido);
     }
   }
 }
-
-
-//https://ionicframework.com/docs/api/virtual-scroll
