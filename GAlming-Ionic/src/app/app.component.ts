@@ -30,7 +30,7 @@ export class AppComponent {
   public menuLogged() {
     this.appPages = [
       { title: 'Inicio', url: '/home', icon: 'home' },
-      { title: 'Perfil', url: '/home', icon: 'person' },
+      { title: 'Perfil', url: '/perfil', icon: 'person' },
       { title: 'detallecompra', url: '/detalle-compra/1', icon: 'home' },
       { title: 'Pedidos', url: '/pedidos', icon: 'paper-plane' },
       { title: 'Cerrar Sesion', url: '/home', icon: 'log-out' },

@@ -42,12 +42,16 @@ const routes: Routes = [
   {
     path: 'asistencia/:idServicio',
     loadChildren: () => import('./asistencia/asistencia.module').then( m => m.AsistenciaPageModule)
-   
   },
   {
     path: 'detalle-compra/:idProducto',
     loadChildren: () => import('./detalle-compra/detalle-compra.module').then( m => m.DetalleCompraPageModule)
+  },
+  {
+    path: 'perfil',
+    loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
   }
+
 ];
 
 @NgModule({

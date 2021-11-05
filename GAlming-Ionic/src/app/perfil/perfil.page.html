@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>PERFIL</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+<p>
+    <img src="/assets/foto-persona.png">
+</p>
+<br>
+
+  <ion-button 
+    id="boton_editar"
+    expand="full"
+    color="primary"
+    (click)="mostrar()">
+      Editar datos
+  </ion-button>
+
+  <ion-card>
+    <ion-label>Dni</ion-label>
+    <ion-input type="text" [(ngModel)]="usuario.usuDni" value={{usuario.usuDni}} disabled={{modo}}></ion-input>
+    <ion-label>Nombre</ion-label>
+    <ion-input type="text" [(ngModel)]="usuario.usuNombre" value={{usuario.usuNombre}} disabled={{modo}}></ion-input>
+    <ion-label>Primer apellido</ion-label>
+    <ion-input type="text" [(ngModel)]="usuario.usuApellido1" value={{usuario.usuApellido1}} disabled={{modo}}></ion-input>
+    <ion-label>Segundo apellido</ion-label>
+    <ion-input type="text" [(ngModel)]="usuario.usuApellido2" value={{usuario.usuApellido2}} disabled={{modo}}></ion-input>
+    <ion-label>Direccion</ion-label>
+    <ion-input type="text" [(ngModel)]="usuario.usuDireccion" value={{usuario.usuDireccion}} disabled={{modo}}></ion-input>
+    <ion-label>Contraseña</ion-label>
+    <ion-input type="text" [(ngModel)]="usuario.usuPass" value={{usuario.usuPass}} disabled={{modo}}></ion-input>
+    <ion-label>Email</ion-label>
+    <ion-input type="text" [(ngModel)]="usuario.usuEmail" value={{usuario.usuEmail}} disabled={{modo}}></ion-input>
+    <ion-label>Ciudad</ion-label>
+    <ion-input type="text" [(ngModel)]="usuario.usuCiudad" value={{usuario.usuCiudad}} disabled={{modo}}></ion-input>
+  </ion-card>
+
+  <ion-button
+    id="boton_enviar" 
+    expand="full"
+    color="primary"
+    (click)="enviar()">
+      Guardar cambios
+  </ion-button>
+
+</ion-content>
