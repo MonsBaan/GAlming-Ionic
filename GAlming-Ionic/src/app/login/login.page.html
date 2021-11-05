@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="Volver" src="../../assets/back.png"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-card-header>
+    <ion-label id="labelAcceder">Acceder</ion-label><br><br>
+
+  </ion-card-header>
+  <ion-card-content>
+
+  <form (ngSubmit)="login()">
+      <ion-label>DNI</ion-label>
+      <input type="text"><br><br>
+  
+      <ion-label>Contraseña</ion-label>
+      <input type="password"><br>
+  
+  
+      <ion-button expand="full" type="submit">Enviar</ion-button>
+  </form>
+
+</ion-card-content>
+
+
+</ion-content>
