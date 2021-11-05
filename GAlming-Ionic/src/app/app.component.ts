@@ -22,6 +22,7 @@ export class AppComponent {
   public menu() {
     this.appPages = [
       { title: 'Inicio', url: '/home', icon: 'home' },
+      { title: 'Compras', url: '/compras', icon: 'basket-outline' },
       { title: 'Acceder', url: '/login', icon: 'key' },
       { title: 'Registrarse', url: '/registrarse', icon: 'person-add' },
 
@@ -31,6 +32,7 @@ export class AppComponent {
     this.appPages = [
       { title: 'Inicio', url: '/home', icon: 'home' },
       { title: 'Perfil', url: '/perfil', icon: 'person' },
+      { title: 'Compras', url: '/compras', icon: 'basket-outline' },
       { title: 'detallecompra', url: '/detalle-compra/1', icon: 'home' },
       { title: 'Pedidos', url: '/pedidos', icon: 'paper-plane' },
       { title: 'Cerrar Sesion', url: '/home', icon: 'log-out' },
