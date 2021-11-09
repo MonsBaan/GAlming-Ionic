@@ -10,19 +10,24 @@ export class AppComponent {
   fotoPerfil = "https://almi.eus/wp-content/uploads/2018/06/logo-Almi.jpg"
 
   public labels = [
-    {title: "Galeria", url: "/galeria"}, 
-    {title: "Donde Estamos", url: "/donde-estamos"}, 
+    {title: "Galeria", url: "/galeria"},
+    {title: "Donde Estamos", url: "/donde-estamos"},
     {title: "Sobre Nosotros", url: "/sobre-nosotros"},
   ]
+
   constructor(private alertController:AlertController) {
-    this.menu();
-    localStorage.setItem("login", "1");
+    // this.menu();
+    // localStorage.setItem("login", "0");
+    if (localStorage.getItem("login")=="1") {
+      this.menuLogged();
+    }else{
+      this.menu();
+    }
   }
-  
+
   public menu() {
     this.appPages = [
       { title: 'Inicio', url: '/home', icon: 'home' },
-      { title: 'Compras', url: '/compras', icon: 'basket-outline' },
       { title: 'Acceder', url: '/login', icon: 'key' },
       { title: 'Registrarse', url: '/registrarse', icon: 'person-add' },
 
@@ -32,10 +37,8 @@ export class AppComponent {
     this.appPages = [
       { title: 'Inicio', url: '/home', icon: 'home' },
       { title: 'Perfil', url: '/perfil', icon: 'person' },
-      { title: 'Compras', url: '/compras', icon: 'basket-outline' },
-      { title: 'detallecompra', url: '/detalle-compra/1', icon: 'home' },
       { title: 'Pedidos', url: '/pedidos', icon: 'paper-plane' },
-      { title: 'Cerrar Sesion', url: '/home', icon: 'log-out' },
+      { title: 'Cerrar Sesion', url: '/cerrar-sesion', icon: 'log-out' },
 
     ];
   }

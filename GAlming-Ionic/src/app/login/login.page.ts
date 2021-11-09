@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { AppComponent } from '../app.component';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -7,14 +9,16 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  constructor(private geolocation:Geolocation) { }
+  constructor(private appComponent:AppComponent, private geolocation:Geolocation, private router: Router) { }
 
   ngOnInit() {
   }
 
   login(){
     console.log(this.geolocation.getCurrentPosition());
-
+    localStorage.setItem("login", "1");
+    this.appComponent.menuLogged();
+    this.router.navigateByUrl('/home');
   }
 
 }

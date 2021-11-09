@@ -52,8 +52,16 @@ const routes: Routes = [
     loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
   },
   {
-    path: 'compras',
+    path: 'compras/:idTipo',
     loadChildren: () => import('./compras/compras.module').then( m => m.ComprasPageModule)
+  },
+  {
+    path: 'busqueda/:stringBuscar',
+    loadChildren: () => import('./busqueda/busqueda.module').then( m => m.BusquedaPageModule)
+  },
+  {
+    path: 'cerrar-sesion',
+    loadChildren: () => import('./cerrar-sesion/cerrar-sesion.module').then( m => m.CerrarSesionPageModule)
   }
 
 ];

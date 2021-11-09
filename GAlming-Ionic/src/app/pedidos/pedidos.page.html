@@ -12,6 +12,7 @@
     <ion-select-option>Todo</ion-select-option>
     <ion-select-option *ngFor="let tipo of tipos" [value]="tipo.tipoServId">{{ tipo.tipoServNombre }}</ion-select-option>
   </ion-select>
+  
   <ion-list>
     <ion-virtual-scroll [items]="pedidos">
       <ion-card *virtualItem="let pedido" (click)="info(pedido)">

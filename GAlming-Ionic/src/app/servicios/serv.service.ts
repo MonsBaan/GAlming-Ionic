@@ -14,6 +14,14 @@ export class ServService {
 
   constructor(private httpClient: HttpClient) { }
 
+  getTiposProd(): Observable<any> {
+    return this.httpClient.get<any[]>(this.url + "/producto/get_tipos");
+  }
+
+  getProductosTipo(idTipo): Observable<any> {
+    return this.httpClient.get<any[]>(this.url + "/producto/get_by_tipo/" + idTipo);
+  }
+
   getProducto(idProd): Observable<any> {
     return this.httpClient.get<any[]>(this.url + "/producto/getOnePlus/" + idProd);
   }
