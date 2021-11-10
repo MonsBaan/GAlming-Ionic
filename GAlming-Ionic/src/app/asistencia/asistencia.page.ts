@@ -47,7 +47,7 @@ export class AsistenciaPage implements OnInit {
 
   crearNuevoMensaje() {
     if (this.nuevoMensaje != null && this.nuevoMensaje != "") {
-      this.postMensaje({'mensaje': this.nuevoMensaje, 'servicio': 1});
+      this.postMensaje({'mensaje': this.nuevoMensaje, 'servicio': this.idServicio});
       this.nuevoMensaje = "";
 
       this.content.scrollToBottom(200);

@@ -28,6 +28,7 @@ export class HomePage implements OnInit {
   ngOnInit() {
     this.getTipos();
   }
+
   async getTipos() {
     await this.servicio.getTiposProd()
       .subscribe(res => {
@@ -37,14 +38,12 @@ export class HomePage implements OnInit {
           await this.servicio.getProductosTipo(tipo.tipoProdId).subscribe(res =>{
             if (res.length != 0) {
               this.tipoProducto.push({"tipoID":tipo.tipoProdId, "tipoNombre":tipo.tipoProdNombre ,"data":res})
-              console.log(this.tipoProducto);
             }
-            
+
           },
           err => {
             console.log(err)
           })
-
 
         });
       }, err => {
@@ -64,7 +63,7 @@ export class HomePage implements OnInit {
         console.log(err);
       })
     }
-  
+
     async getProductos(idTipo) {
       await this.servicio.getProductosTipo(idTipo)
         .subscribe(res => {
@@ -74,12 +73,13 @@ export class HomePage implements OnInit {
           }else{
             console.log("vacio");
           }
-          
+
         }, err => {
           console.log(err);
         })
     }
   */
+
   irProductos(idTipo) {
     this.router.navigateByUrl('/compras/' + idTipo);
   }
@@ -89,6 +89,10 @@ export class HomePage implements OnInit {
       this.router.navigateByUrl('/busqueda/' + this.txtBuscar);
       this.txtBuscar = "";
     }
+  }
+
+  infoProducto(idProd) {
+    this.router.navigateByUrl('/detalle-compra/' + idProd);
   }
 
 }

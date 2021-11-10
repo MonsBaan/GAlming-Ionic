@@ -17,6 +17,10 @@ export class PedidosInfoPage implements OnInit {
   constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    if(localStorage.getItem("login") == "0") {
+      this.router.navigateByUrl('/home');
+    }
+    
     this.pedido = JSON.parse(localStorage.getItem("pedido"));
     localStorage.removeItem("pedido");
   }

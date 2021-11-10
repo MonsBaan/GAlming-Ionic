@@ -18,6 +18,10 @@ export class PedidosPage implements OnInit {
   }
 
   ngOnInit() {
+    if(localStorage.getItem("login") == "0") {
+      this.router.navigateByUrl('/home');
+    }
+
     this.getTodosPedidos();
     this.getTipos();
   }
@@ -28,7 +32,7 @@ export class PedidosPage implements OnInit {
     });
 
     await loading.present();
-    await this.servicio.getPedidos("5") //id usuario
+    await this.servicio.getPedidos(localStorage.getItem("usuId"))
       .subscribe(res => {
         this.pedidos = res;
         loading.dismiss();
@@ -44,7 +48,7 @@ export class PedidosPage implements OnInit {
     });
 
     await loading.present();
-    await this.servicio.getPedidosTipo(idTipo, "5") //id usuario
+    await this.servicio.getPedidosTipo(idTipo, localStorage.getItem("usuId"))
       .subscribe(res => {
         this.pedidos = res;
         loading.dismiss();

@@ -11,7 +11,7 @@
   <ion-img id="imgProducto" [src]="pedido.servProducto.prodFoto"></ion-img>
   <ion-label class="centro" id="nombreProd">{{ pedido.servProducto.prodNombre }}</ion-label>
   <ion-label id="fecha">{{ pedido.servFecha }}</ion-label>
-  <ion-label id="precio">{{ pedido.servPrecioCompra }}€</ion-label>
+  <ion-label id="precio">{{ pedido.servPrecioCompra - ((pedido.servPrecioCompra * pedido.servDescCompra) / 100) }}€</ion-label>
   <ion-label class="centro" (click)="desc()" id="descTitulo">Descripcion del producto: {{ flecha }}</ion-label>
   <ion-label *ngIf="verDesc" class="centro" id="descripcion">{{ pedido.servProducto.prodDescripcion }}</ion-label>
 

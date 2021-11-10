@@ -7,7 +7,10 @@ import { AlertController } from '@ionic/angular';
 })
 export class AppComponent {
   public appPages = [];
-  fotoPerfil = "https://almi.eus/wp-content/uploads/2018/06/logo-Almi.jpg"
+  fotoPerfil = "https://almi.eus/wp-content/uploads/2018/06/logo-Almi.jpg";
+  login = localStorage.getItem("login");
+  nombreUsu = localStorage.getItem("usuNombre");
+  fotoUsu = localStorage.getItem("usuFoto");
 
   public labels = [
     {title: "Galeria", url: "/galeria"},
@@ -16,9 +19,7 @@ export class AppComponent {
   ]
 
   constructor(private alertController:AlertController) {
-    // this.menu();
-    // localStorage.setItem("login", "0");
-    if (localStorage.getItem("login")=="1") {
+    if (localStorage.getItem("login") == "1") {
       this.menuLogged();
     }else{
       this.menu();
@@ -30,17 +31,25 @@ export class AppComponent {
       { title: 'Inicio', url: '/home', icon: 'home' },
       { title: 'Acceder', url: '/login', icon: 'key' },
       { title: 'Registrarse', url: '/registrarse', icon: 'person-add' },
-
     ];
   }
+
   public menuLogged() {
     this.appPages = [
       { title: 'Inicio', url: '/home', icon: 'home' },
       { title: 'Perfil', url: '/perfil', icon: 'person' },
       { title: 'Pedidos', url: '/pedidos', icon: 'paper-plane' },
       { title: 'Cerrar Sesion', url: '/cerrar-sesion', icon: 'log-out' },
-
     ];
+  }
+
+  public loginCambio() {
+    this.login = localStorage.getItem("login");
+    this.nombreUsu = localStorage.getItem("usuNombre");
+    this.fotoUsu = localStorage.getItem("usuFoto");
+    if(this.fotoUsu == "") {
+      this.fotoUsu = "https://almi.eus/wp-content/uploads/2018/06/logo-Almi.jpg";
+    }
   }
 
 }

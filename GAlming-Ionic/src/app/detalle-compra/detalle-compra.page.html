@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
+      <ion-back-button></ion-back-button>
     </ion-buttons>
     <ion-title>Información del producto</ion-title>
   </ion-toolbar>
@@ -12,7 +12,7 @@
   <ion-img [src]="producto[0]?.prodFoto" id="imgProducto"></ion-img>
 
   <ion-label id="stock">{{ producto[0]?.opProdStock }} en stock</ion-label>
-  <ion-button expand="full" id="btnServicio" color="primary" (click)="btn()">COMPRAR</ion-button>
+  <ion-button *ngIf="login == 1" expand="full" id="btnServicio" color="primary" (click)="postNuevoServicio()">{{ producto[0]?.operacionDescripcion }}</ion-button>
 
   <ion-label *ngIf="producto[0]?.opProdDescuento == 0 || producto[0]?.opProdDescuento == null" class="precio">{{ producto[0]?.opProdPrecio }}€</ion-label>
   <ion-label *ngIf="producto[0]?.opProdDescuento != 0 && producto[0]?.opProdDescuento != null" class="precio" id="precioDescuento"><span>{{ producto[0]?.opProdPrecio }}€</span>---{{ precioDescuento }}€</ion-label>

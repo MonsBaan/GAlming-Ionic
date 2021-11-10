@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>busqueda</ion-title>
+    <ion-title>Buscar: {{ stringBuscar}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -18,7 +18,7 @@
 
         <ion-label>
           <h2>{{ prod.opProdProductos.prodNombre }}</h2>
-          <p>{{  prod.opProdPrecio }}€</p>
+          <p>{{ prod.opProdPrecio - ((prod.opProdPrecio * prod.opProdDescuento) / 100) }}€</p>
         </ion-label>
       </ion-item>
 

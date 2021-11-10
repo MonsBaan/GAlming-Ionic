@@ -26,8 +26,16 @@ export class ServService {
     return this.httpClient.get<any[]>(this.url + "/producto/getOnePlus/" + idProd);
   }
 
+  getBusqueda(buscar): Observable<any> {
+    return this.httpClient.get<any[]>(this.url + "/producto/getBusqueda/" + buscar);
+  }
+
   getTiposServicios(): Observable<any> {
     return this.httpClient.get<any[]>(this.url + "/tipo/servicio");
+  }
+
+  postServicio(info): Observable<any> {
+    return this.httpClient.post(this.url + "/servicio/add", info);
   }
 
   getPedidos(idUsuario): Observable<any> {
@@ -44,5 +52,13 @@ export class ServService {
 
   postMensaje(info): Observable<any> {
     return this.httpClient.post(this.url + "/asistencia/mensajes", info);
+  }
+
+  postLogin(info): Observable<any> {
+    return this.httpClient.post(this.url + "/usuario/login", info);
+  }
+
+  postUsuario(info): Observable<any> {
+    return this.httpClient.post(this.url + "/addusuario/", info);
   }
 }

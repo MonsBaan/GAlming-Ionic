@@ -4,12 +4,10 @@
       <ion-content>
         <ion-list id="inbox-list">
           <ion-item>
-            <img id="fotoPerfil" src="{{fotoPerfil}}">
-
+            <img *ngIf="login != 1" id="fotoPerfil" src="{{ fotoPerfil }}">
+            <img *ngIf="login == 1" id="fotoPerfil" src="{{ fotoUsu }}">
           </ion-item>
-            <ion-note>email@email.com</ion-note><br>
-
-            <ion-note>Nombre Señor</ion-note>
+          <ion-note *ngIf="login == 1">{{ nombreUsu }}</ion-note>
 
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
             <ion-item routerLink="{{p.url}}" lines="none" routerLinkActive="selected">
@@ -26,14 +24,8 @@
               <ion-icon slot="start" ios="bookmark-outline" md="bookmark-sharp"></ion-icon>
               <ion-label>{{ label.title }}</ion-label>
             </ion-item>
-
-
           </ion-menu-toggle>
-
         </ion-list>
-
-
-
 
       </ion-content>
     </ion-menu>

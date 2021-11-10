@@ -34,7 +34,7 @@
 
         <ion-label>
           <h2>{{ prod.opProdProductos.prodNombre }}</h2>
-          <p>{{  prod.opProdPrecio }}€</p>
+          <p>{{ prod.opProdPrecio - ((prod.opProdPrecio * prod.opProdDescuento) / 100) }}€</p>
         </ion-label>
       </ion-item>
 

@@ -6,7 +6,7 @@
         <ion-menu-button><img src="{{fotoPerfil}}"/></ion-menu-button>
       </ion-buttons>
       <form (ngSubmit)="busqueda()">
-        <ion-input name="buscar" type="text" placeholder="Busqueda"  [(ngModel)]="txtBuscar"></ion-input>
+        <ion-input name="buscar" type="text" placeholder="Busqueda" [(ngModel)]="txtBuscar"></ion-input>
       </form>
     </ion-toolbar>
   </ion-item>
@@ -15,11 +15,11 @@
     <ion-item id="tipoProducto" routerLink=""  (click)="irProductos(tipo.tipoID)">{{ tipo.tipoNombre }}</ion-item>
 
       <ion-slides [options]="{ slidesPerView: 'auto'}">
-        <ion-slide *ngFor="let item of tipo.data">
+        <ion-slide *ngFor="let item of tipo.data" (click)="infoProducto(item.opProdProductos.prodId)">
           <ion-col>
             <ion-img [src]="item.opProdProductos.prodFoto"></ion-img>
             <ion-label>{{ item.opProdProductos.prodNombre }}</ion-label><br>
-            <ion-label>{{ item.opProdPrecio }}€</ion-label>
+            <ion-label>{{ item.opProdPrecio - ((item.opProdPrecio * item.opProdDescuento) / 100) }}€</ion-label>
 
           </ion-col>
         </ion-slide>

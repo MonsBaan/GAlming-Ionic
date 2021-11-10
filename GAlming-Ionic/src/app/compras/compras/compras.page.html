@@ -1,9 +1,39 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>compras</ion-title>
+    <ion-title>Compra</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-list>
+    <ion-virtual-scroll [items]="productos">
 
+      <ion-item *virtualItem="let prod" (click)="masInfoProd(prod.opProdProductos.prodId)" detail>
+        <ion-thumbnail slot="start">
+          <ion-img [src]="prod.opProdProductos.prodFoto"></ion-img>
+        </ion-thumbnail>
+
+        <ion-label>
+          <h2>{{ prod.opProdProductos.prodNombre }}</h2>
+          <p>{{ prod.opProdPrecio - ((prod.opProdPrecio * prod.opProdDescuento) / 100) }}€</p>
+        </ion-label>
+      </ion-item>
+
+    </ion-virtual-scroll>
+  </ion-list>
 </ion-content>
+
+<ion-toolbar>
+  <ion-tabs>
+    <ion-tab-bar>
+      <ion-tab-button>
+        <ion-icon id="activo" name="calendar"></ion-icon>
+        <ion-label>Compra</ion-label>
+      </ion-tab-button>
+      <ion-tab-button (click)="alquiler()">
+        <ion-icon name="calendar"></ion-icon>
+        <ion-label>Alquiler</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-toolbar>

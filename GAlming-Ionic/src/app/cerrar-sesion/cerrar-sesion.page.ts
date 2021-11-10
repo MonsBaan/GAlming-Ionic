@@ -12,8 +12,10 @@ export class CerrarSesionPage implements OnInit {
   constructor(private appComponent:AppComponent, private router: Router) { }
 
   ngOnInit() {
+    localStorage.clear();
     localStorage.setItem("login", "0");
     this.appComponent.menu();
+    this.appComponent.loginCambio();
     this.router.navigateByUrl('/home');
   }
 

@@ -6,26 +6,20 @@
   </ion-toolbar>
 </ion-header>
 
-
 <ion-content>
   <ion-card-header>
     <ion-label id="labelAcceder">Acceder</ion-label><br><br>
-
   </ion-card-header>
+
   <ion-card-content>
-
-  <form (ngSubmit)="login()">
+    <form (ngSubmit)="login()">
       <ion-label>DNI</ion-label>
-      <input type="text"><br><br>
-  
+      <input name="dni" type="text" [(ngModel)]="dni"><br><br>
+
       <ion-label>Contraseña</ion-label>
-      <input type="password"><br>
-  
-  
+      <input name="password" type="password" [(ngModel)]="password"><br>
+
       <ion-button expand="full" type="submit">Enviar</ion-button>
-  </form>
-
-</ion-card-content>
-
-
+    </form>
+  </ion-card-content>
 </ion-content>
