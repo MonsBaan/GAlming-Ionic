@@ -1,5 +1,8 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
     <ion-title>Alquiler</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -8,13 +11,13 @@
   <ion-list>
     <ion-virtual-scroll [items]="productos">
 
-      <ion-item *virtualItem="let prod" (click)="masInfoProd(prod.opProdProductos.prodId)" detail>
+      <ion-item *virtualItem="let prod" (click)="masInfoProd(prod.opProdId)" detail>
         <ion-thumbnail slot="start">
-          <ion-img [src]="prod.opProdProductos.prodFoto"></ion-img>
+          <ion-img [src]="prod.prodFoto"></ion-img>
         </ion-thumbnail>
 
         <ion-label>
-          <h2>{{ prod.opProdProductos.prodNombre }}</h2>
+          <h2>{{ prod.prodNombre }}</h2>
           <p>{{ prod.opProdPrecio - ((prod.opProdPrecio * prod.opProdDescuento) / 100) }}€</p>
         </ion-label>
       </ion-item>

@@ -9,27 +9,29 @@ import { ServService } from "./../../servicios/serv.service";
 })
 export class ComprasPage implements OnInit {
 
+  productos;
+
   constructor(private servicio: ServService, private router: Router) { }
 
   ngOnInit() {
-    //this.getJuegosCompra();
+    this.getJuegosCompra();
   }
 
-  // async getJuegosCompra() {
-  //   await this.servicio.getJuegosCompra()
-  //     .subscribe(res => {
-  //       console.log(res);
-  //     }, err => {
-  //       console.log(err);
-  //     })
-  // }
+  async getJuegosCompra() {
+    await this.servicio.getVideojuegos("2")
+      .subscribe(res => {
+        this.productos = res;
+      }, err => {
+        console.log(err);
+      })
+  }
 
   alquiler() {
     this.router.navigateByUrl('/compras/2/alquiler');
   }
 
   masInfoProd(idProd) {
-
+    this.router.navigateByUrl('/detalle-compra/' + idProd);
   }
 
 }

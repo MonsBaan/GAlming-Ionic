@@ -29,9 +29,7 @@ form input{
 
 form{
     margin: 0px auto;
-
 }
-
 
 #labelAcceder{
     color: rgb(25, 59, 78);
@@ -39,4 +37,12 @@ form{
     text-align: center;
     display: block;
     font-size: 20px;
+}
+
+#fallo {
+    color: red;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
 }

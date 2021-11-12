@@ -26,6 +26,10 @@ export class ServService {
     return this.httpClient.get<any[]>(this.url + "/producto/getOnePlus/" + idProd);
   }
 
+  getVideojuegos(idOperacion): Observable<any> {
+    return this.httpClient.get<any[]>(this.url + "/producto/getVideojuegosOp/" + idOperacion);
+  }
+
   getBusqueda(buscar): Observable<any> {
     return this.httpClient.get<any[]>(this.url + "/producto/getBusqueda/" + buscar);
   }
@@ -36,6 +40,10 @@ export class ServService {
 
   postServicio(info): Observable<any> {
     return this.httpClient.post(this.url + "/servicio/add", info);
+  }
+
+  postGeo(idUsu, info): Observable<any> {
+    return this.httpClient.post(this.url + "/addlocalizacion/" + idUsu, info);
   }
 
   getPedidos(idUsuario): Observable<any> {

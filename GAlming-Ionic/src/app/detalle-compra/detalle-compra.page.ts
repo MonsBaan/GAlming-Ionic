@@ -13,20 +13,27 @@ export class DetalleCompraPage implements OnInit {
   producto = {};
   precioDescuento;
   nuevoServicio;
-  idProducto;
+  idOpProducto;
   fechaHoy = new Date();
   fechaDevol;
   login = localStorage.getItem("login");
+  txtBtn;
 
   constructor(private servicio: ServService, private route: ActivatedRoute, private router: Router) { }
 
   async getProducto() {
-    await this.servicio.getProducto(this.idProducto)
+    await this.servicio.getProducto(this.idOpProducto)
       .subscribe(res => {
         this.producto = res;
-
+        
         if (this.producto[0].opProdDescuento != null && this.producto[0].opProdDescuento != 0) {
           this.precioDescuento = this.producto[0].opProdPrecio - ((this.producto[0].opProdPrecio * this.producto[0].opProdDescuento) / 100);
+        }
+
+        if(this.producto[0].operacionDescripcion == "Compra") {
+          this.txtBtn = "Comprar";
+        }else if(this.producto[0].operacionDescripcion == "Alquiler") {
+          this.txtBtn = "Alquilar";
         }
       }, err => {
         console.log(err);
@@ -46,7 +53,7 @@ export class DetalleCompraPage implements OnInit {
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
-      this.idProducto = params["params"]["idProducto"];
+      this.idOpProducto = params["params"]["idProducto"];
     });
 
     this.getProducto();
@@ -61,7 +68,7 @@ export class DetalleCompraPage implements OnInit {
 
     this.nuevoServicio = {
       "usuario": localStorage.getItem("usuId"),
-      "producto": this.idProducto,
+      "producto": this.producto[0].prodId,
       "tipoServicio": 1,
       "descripcion": this.producto[0].operacionDescripcion +" de " + this.producto[0].prodNombre,
       "fechaCompra": new Date().toISOString().substring(0,10),

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { disableDebugTools } from '@angular/platform-browser';
 import { modalController } from '@ionic/core';
 import { LoadingController } from '@ionic/angular';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-perfil',
@@ -12,24 +13,22 @@ import { LoadingController } from '@ionic/angular';
 export class PerfilPage implements OnInit {
   modo = true;
 
-
   /** DATOS  */
   public usuario = {
-    usuDni: "574625434K",
-    usuNombre: "Mario",
-    usuApellido1: "Torres",
-    usuApellido2: "Cid",
-    usuDireccion: 'Colon 22',
-    usuPass: 'Almi123',
-    usuEmail: 'Mario@gmail.com',
-    usuFoto: 'FOTO',
-    usuCiudad: 'Bilbao'
+    usuDni: "",
+    usuNombre: "",
+    usuApellido1: "",
+    usuApellido2: "",
+    usuDireccion: '',
+    usuPass: '',
+    usuEmail: '',
+    usuFoto: '',
+    usuCiudad: ''
   };
 
-  constructor(private perfilService: PerfilService, public loadingController: LoadingController) { }
+  constructor(private perfilService: PerfilService, public loadingController: LoadingController,  private router: Router) { }
 
   async cargarPerfil() {
-    localStorage.setItem('usuId', "4");
 
     const loading = await this.loadingController.create({
       message: 'Cargando...'
@@ -38,7 +37,6 @@ export class PerfilPage implements OnInit {
     await loading.present();
     await this.perfilService.cargarPerfil(this.usuario)
     .subscribe(res => {
-      console.log(res[0]);
       loading.dismiss();
       if (res[0] == 0 || res[0] == null) {
         alert("Usuario inexistente")
@@ -50,17 +48,19 @@ export class PerfilPage implements OnInit {
       console.log(err);
       loading.dismiss();
     }
-    
-    )};
 
-    
-
-
+  )};
 
   ngOnInit() {
 
-    this.cargarPerfil();
+  }
 
+  ionViewDidEnter() {
+    if(localStorage.getItem("login") == "0") {
+      this.router.navigateByUrl('/home');
+    }
+
+    this.cargarPerfil();
   }
 
   mostrar() {

@@ -10,12 +10,12 @@
       </form>
     </ion-toolbar>
   </ion-item>
-
+  <div class="square"></div>
   <ion-list *ngFor="let tipo of tipoProducto">
-    <ion-item id="tipoProducto" routerLink=""  (click)="irProductos(tipo.tipoID)">{{ tipo.tipoNombre }}</ion-item>
+    <ion-item id="tipoProducto" routerLink="" (click)="irProductos(tipo.tipoID)" >{{ tipo.tipoNombre }}</ion-item>
 
       <ion-slides [options]="{ slidesPerView: 'auto'}">
-        <ion-slide *ngFor="let item of tipo.data" (click)="infoProducto(item.opProdProductos.prodId)">
+        <ion-slide *ngFor="let item of tipo.data" (click)="infoProducto(item.opProdId)">
           <ion-col>
             <ion-img [src]="item.opProdProductos.prodFoto"></ion-img>
             <ion-label>{{ item.opProdProductos.prodNombre }}</ion-label><br>

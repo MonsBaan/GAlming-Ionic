@@ -11,18 +11,16 @@ export class PerfilService {
 
   public url = "https://galming.duckdns.org/";
 
-  usuarioId = localStorage.getItem('usuId');
-
   constructor(private httpClient:HttpClient) { }
 
   cargarPerfil(perfil:Perfil): Observable<any>
   {
-    return this.httpClient.get(this.url + "usuario/" + this.usuarioId);
+    return this.httpClient.get(this.url + "usuario/" + localStorage.getItem('usuId'));
   }
 
   actualizarPerfil(perfil:Perfil): Observable<any>
   {
-    return this.httpClient.post(this.url + "updateusuario/" + this.usuarioId, perfil);
+    return this.httpClient.post(this.url + "updateusuario/" + localStorage.getItem('usuId'), perfil);
   }
 
 

@@ -11,7 +11,7 @@
   <ion-list>
     <ion-virtual-scroll [items]="productos">
 
-      <ion-item *virtualItem="let prod" (click)="masInfoProd(prod.opProdProductos.prodId)" detail>
+      <ion-item *virtualItem="let prod" (click)="masInfoProd(prod.opProdId)" detail>
         <ion-thumbnail slot="start">
           <ion-img [src]="prod.opProdProductos.prodFoto"></ion-img>
         </ion-thumbnail>

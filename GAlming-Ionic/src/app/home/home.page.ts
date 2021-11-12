@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { AppComponent } from '../app.component';
 import { ServService } from "./../servicios/serv.service";
 import { Router } from "@angular/router";
@@ -11,15 +12,9 @@ import { Router } from "@angular/router";
 export class HomePage implements OnInit {
   fotoPerfil = this.appComponent.fotoPerfil;
 
-  constructor(private appComponent: AppComponent, private servicio: ServService, private router: Router) { }
-  // items = ["asafs","bafsaf","c","dwfafw","eawfafw","ffwaf","asafs","bafsaf",
-  // "c","dwfafw","eawfafw","ffwaf","asafs","bafsaf","c","dwfafw","eawfafw","ffwaf"
-  // ,"asafs","bafsaf","c","dwfafw","eawfafw","ffwaf","asafs","bafsaf","c","dwfafw",
-  // "eawfafw","ffwaf","asafs","bafsaf","c","dwfafw","eawfafw","ffwaf","asafs","bafsaf",
-  // "c","dwfafw","eawfafw","ffwaf","asafs","bafsaf","c","dwfafw","eawfafw","ffwaf","asafs",
-  // "bafsaf","c","dwfafw","eawfafw","ffwaf","asafs","bafsaf","c","dwfafw","eawfafw","ffwaf",
-  // "asafs","bafsaf","c","dwfafw","eawfafw","ffwaf","asafs","bafsaf","c","dwfafw","eawfafw",
-  // "ffwaf","asafs","bafsaf","c","dwfafw","eawfafw","ffwaf",];
+  constructor(private appComponent: AppComponent, private servicio: ServService, private router: Router) {
+    
+  }
 
   txtBuscar;
   tipoProducto = [];
@@ -32,6 +27,7 @@ export class HomePage implements OnInit {
   async getTipos() {
     await this.servicio.getTiposProd()
       .subscribe(res => {
+
         let listaProducto = res;
 
         listaProducto.forEach(async tipo => {
@@ -51,35 +47,6 @@ export class HomePage implements OnInit {
       })
   }
 
-  /*
-    async getTipos() {
-      await this.servicio.getTiposProd()
-      .subscribe(res => {
-        this.tipoProducto = res;
-        this.tipoProducto.forEach((obj, index) => {
-          this.getProductos(obj.tipoProdId);
-        });
-      }, err => {
-        console.log(err);
-      })
-    }
-
-    async getProductos(idTipo) {
-      await this.servicio.getProductosTipo(idTipo)
-        .subscribe(res => {
-          if(res.length != 0){
-            console.log(res);
-            this.items.push(res);
-          }else{
-            console.log("vacio");
-          }
-
-        }, err => {
-          console.log(err);
-        })
-    }
-  */
-
   irProductos(idTipo) {
     this.router.navigateByUrl('/compras/' + idTipo);
   }
@@ -94,5 +61,4 @@ export class HomePage implements OnInit {
   infoProducto(idProd) {
     this.router.navigateByUrl('/detalle-compra/' + idProd);
   }
-
 }
