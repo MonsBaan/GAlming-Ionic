@@ -25,12 +25,14 @@ export class DetalleCompraPage implements OnInit {
     await this.servicio.getProducto(this.idOpProducto)
       .subscribe(res => {
         this.producto = res;
-        
+
         if (this.producto[0].opProdDescuento != null && this.producto[0].opProdDescuento != 0) {
           this.precioDescuento = this.producto[0].opProdPrecio - ((this.producto[0].opProdPrecio * this.producto[0].opProdDescuento) / 100);
         }
 
-        if(this.producto[0].operacionDescripcion == "Compra") {
+        if(this.producto[0].opProdStock == 0) {
+          this.txtBtn = "No hay stock";
+        }else if(this.producto[0].operacionDescripcion == "Compra") {
           this.txtBtn = "Comprar";
         }else if(this.producto[0].operacionDescripcion == "Alquiler") {
           this.txtBtn = "Alquilar";
@@ -42,6 +44,16 @@ export class DetalleCompraPage implements OnInit {
 
   async postServicio(info) {
     await this.servicio.postServicio(info)
+      .subscribe(res => {
+        console.log(res);
+        this.cambiarStock();
+      }, err => {
+        console.log(err);
+      })
+  }
+
+  async cambiarStock() {
+    await this.servicio.cambiarStock({"producto": this.producto[0].prodId, "stock": ""})
       .subscribe(res => {
         console.log(res);
         this.router.navigateByUrl('/pedidos');

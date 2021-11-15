@@ -69,4 +69,8 @@ export class ServService {
   postUsuario(info): Observable<any> {
     return this.httpClient.post(this.url + "/addusuario/", info);
   }
+
+  cambiarStock(info): Observable<any> {
+    return this.httpClient.post(this.url + "/servicio/stock", info);
+  }
 }

@@ -12,7 +12,7 @@
   <ion-img [src]="producto[0]?.prodFoto" id="imgProducto"></ion-img>
 
   <ion-label id="stock">{{ producto[0]?.opProdStock }} en stock</ion-label>
-  <ion-button *ngIf="login == 1" expand="full" id="btnServicio" color="primary" (click)="postNuevoServicio()">{{ txtBtn }}</ion-button>
+  <ion-button *ngIf="login == 1" [class.button-disabled]="producto[0]?.opProdStock == 0" expand="full" id="btnServicio" color="primary" (click)="postNuevoServicio()">{{ txtBtn }}</ion-button>
 
   <ion-label *ngIf="producto[0]?.opProdDescuento == 0 || producto[0]?.opProdDescuento == null" class="precio">{{ producto[0]?.opProdPrecio }}€</ion-label>
   <ion-label *ngIf="producto[0]?.opProdDescuento != 0 && producto[0]?.opProdDescuento != null" class="precio" id="precioDescuento"><span>{{ producto[0]?.opProdPrecio }}€</span>---{{ precioDescuento }}€</ion-label>
