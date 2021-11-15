@@ -28,11 +28,21 @@ ion-toolbar ion-input{
     border-radius: 5px;
 }
 
+@keyframes anim {
+  0%   {left: -200px;}
+  40%  {left: 150px;}
+  100% {left: 0px;}
+}
+
 #tipoProducto ion-label{
     margin: 5px;
 }
 
-.tipoProd {
-    width: 100px;
-    height: 100px;
+.prod {
+  animation-name: anim;
+  animation-duration: 1.5s;
+}
+
+#busqueda {
+  border: 1px white solid;
 }

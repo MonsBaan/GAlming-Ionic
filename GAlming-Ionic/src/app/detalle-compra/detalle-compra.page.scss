@@ -60,12 +60,3 @@ ion-label {
   margin: 15px;
   text-align: justify;
 }
-
-ion-content::part(scroll)::-webkit-scrollbar {
-display: none;
-}
-
-ion-content::part(scroll) {
--ms-overflow-style: none;
-scrollbar-width: none;
-}

@@ -1,7 +1,7 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-buttons slot="start">
-      <ion-back-button text="Volver"></ion-back-button>
+      <ion-menu-button></ion-menu-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -11,8 +11,8 @@
     <ion-label id="labelAcceder">Acceder</ion-label><br><br>
   </ion-card-header>
 
-  <ion-label *ngIf="fallo" id="fallo">DNI o contraseña mal escritos.</ion-label>
-  
+  <ion-label *ngIf="fallo" id="fallo">DNI o contraseña incorrectos</ion-label>
+
   <ion-card-content>
     <form (ngSubmit)="login()">
       <ion-label>DNI</ion-label>
@@ -21,7 +21,7 @@
       <ion-label>Contraseña</ion-label>
       <input name="password" type="password" [(ngModel)]="password"><br>
 
-      <ion-button expand="full" type="submit">Enviar</ion-button>
+      <ion-button expand="full" type="submit">ACCEDER</ion-button>
     </form>
   </ion-card-content>
 

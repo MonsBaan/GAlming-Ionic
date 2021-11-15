@@ -121,8 +121,7 @@ ion-item.selected {
 #fotoPerfil{
   height: 100px;
   margin: 5px auto;
-  border-radius: 50%;
-  width: 100px;
+  margin-bottom: 20px;
   vertical-align: middle;
 }
 ion-slide{
@@ -142,4 +141,3 @@ ion-toolbar ion-input{
 .ios ion-menu-button img{
   width: 30px;
 }
-

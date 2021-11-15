@@ -29,9 +29,9 @@ export class LoginPage implements OnInit {
           localStorage.setItem("usuNombre", res[0].usuNombre);
           localStorage.setItem("usuFoto", res[0].usuFoto);
           localStorage.setItem("login", "1");
-          
+
           //console.log(this.geolocation.getCurrentPosition());
-          
+
           this.geolocation.getCurrentPosition().then((resp) => {
             this.postGeo({"geoFecha": new Date().toISOString().substring(0,10), "geoLat": resp.coords.latitude, "geoLon": resp.coords.longitude});
             // resp.coords.latitude

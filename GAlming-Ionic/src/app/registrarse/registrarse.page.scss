@@ -1,20 +1,10 @@
-ion-slide{
-    width: 150px;
-    height: 130px;
-    font-size: 15px;
-}
-ion-slide ion-img{
-    width: 100px;
-    margin: 0px auto;
-}
-
 .ios ion-menu-button img{
     width: 30px;
 }
 
 form ion-label{
-    color: rgb(25, 59, 78);
     font-weight: bold;
+    display: block;
     text-align: center;
     font-size: 16px;
 }
@@ -29,7 +19,6 @@ form{
 }
 
 #labelAcceder{
-    color: rgb(25, 59, 78);
     font-weight: bold;
     text-align: center;
     display: block;
