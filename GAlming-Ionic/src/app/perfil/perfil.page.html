@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>PERFIL</ion-title>
+    <ion-title>Perfil</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -41,11 +41,7 @@
     <ion-input type="text" [(ngModel)]="usuario.usuCiudad" value={{usuario.usuCiudad}} disabled={{modo}}></ion-input>
   </ion-card>
 
-  <ion-button
-    id="boton_enviar"
-    expand="full"
-    color="primary"
-    (click)="enviar()">
+  <ion-button id="boton_enviar" expand="full" color="primary" [class.button-disabled]="modo == true" (click)="enviar()">
       Guardar cambios
   </ion-button>
 

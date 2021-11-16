@@ -12,6 +12,7 @@
   </ion-card-header>
 
   <ion-label *ngIf="fallo" id="fallo">DNI o contraseña incorrectos</ion-label>
+  <ion-label>{{ geoMsg }}</ion-label>
 
   <ion-card-content>
     <form (ngSubmit)="login()">

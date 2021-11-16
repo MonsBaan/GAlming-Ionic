@@ -1,9 +1,12 @@
-.imgProductos {
-  width: 90px;
+ion-card {
   height: 100px;
-  max-height: 100px;
-  height: auto;
+}
+
+.imgProductos {
+  height: 100px;
+  width: 100px;
   float: right;
+  position: relative;
 }
 
 #comboPedidos {
@@ -21,7 +24,6 @@ ion-card-title, ion-card p {
   display: flex;
   justify-content: center;
   position: relative;
-  top: 10%;
   color: grey;
   font-size: 25px;
 }

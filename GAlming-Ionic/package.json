@@ -24,13 +24,17 @@
     "@capacitor/haptics": "1.1.2",
     "@capacitor/keyboard": "1.1.2",
     "@capacitor/status-bar": "1.0.5",
+    "@ionic-native/android-permissions": "^5.36.0",
     "@ionic-native/core": "^5.36.0",
     "@ionic-native/geolocation": "^5.0.0-beta.14",
+    "@ionic-native/location-accuracy": "^5.36.0",
     "@ionic-native/native-page-transitions": "^5.36.0",
     "@ionic/angular": "^5.5.2",
     "@ionic/angular-toolkit": "^5.0.3",
     "cordova-android": "9.1.0",
+    "cordova-plugin-android-permissions": "^1.1.2",
     "cordova-plugin-geolocation": "^4.1.0",
+    "cordova-plugin-request-location-accuracy": "^2.3.0",
     "rxjs": "~6.6.0",
     "rxjs-compat": "^6.6.7",
     "tslib": "^2.2.0",
@@ -72,6 +76,7 @@
     "karma-coverage-istanbul-reporter": "~3.0.2",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
+    "org.apache.cordova.geolocation": "^0.3.6",
     "protractor": "~7.0.0",
     "ts-node": "~8.3.0",
     "typescript": "~4.2.4"
@@ -87,7 +92,8 @@
         "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
       },
       "cordova-plugin-ionic-keyboard": {},
-      "com.telerik.plugins.nativepagetransitions": {}
+      "com.telerik.plugins.nativepagetransitions": {},
+      "org.apache.cordova.geolocation": {}
     },
     "platforms": [
       "android"
