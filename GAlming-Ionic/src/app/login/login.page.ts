@@ -14,7 +14,6 @@ export class LoginPage implements OnInit {
   dni;
   password;
   fallo = false;
-  geoMsg;
 
   constructor(private appComponent:AppComponent, private geolocation:Geolocation, private router: Router, private servicio: ServService) { }
 
@@ -41,9 +40,9 @@ export class LoginPage implements OnInit {
             console.log('Error getting location', error);
           });
 
-          // this.appComponent.menuLogged();
-          // this.appComponent.loginCambio();
-          // this.router.navigateByUrl('/home');
+          this.appComponent.menuLogged();
+          this.appComponent.loginCambio();
+          this.router.navigateByUrl('/home');
         }else{
           this.fallo = true;
         }
@@ -56,10 +55,8 @@ export class LoginPage implements OnInit {
     await this.servicio.postGeo(localStorage.getItem("usuId"), info)
       .subscribe(res => {
         console.log(res);
-        this.geoMsg=res.status;
       }, err => {
         console.log(err);
-        this.geoMsg=err.error.detail;
       })
   }
 
