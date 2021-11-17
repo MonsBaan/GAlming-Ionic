@@ -2,7 +2,7 @@ import { PerfilService } from './../servicios/perfil.service';
 import { Component, OnInit } from '@angular/core';
 import { disableDebugTools } from '@angular/platform-browser';
 import { modalController } from '@ionic/core';
-import { LoadingController } from '@ionic/angular';
+import { LoadingController, AlertController } from '@ionic/angular';
 import { Router } from "@angular/router";
 
 @Component({
@@ -26,7 +26,7 @@ export class PerfilPage implements OnInit {
     usuCiudad: ''
   };
 
-  constructor(private perfilService: PerfilService, public loadingController: LoadingController,  private router: Router) { }
+  constructor(private perfilService: PerfilService, public loadingController: LoadingController,  private router: Router, public alertController: AlertController) { }
 
   async cargarPerfil() {
 
@@ -78,5 +78,41 @@ export class PerfilPage implements OnInit {
       console.log(err);
     })
     this.cargarPerfil();
+  }
+
+  async eliminarUsu() {
+    await this.perfilService.eliminarUsu(localStorage.getItem("usuId"))
+    .subscribe(res => {
+      console.log(res);
+      this.router.navigateByUrl('/cerrar-sesion');
+    }, err => {
+      console.log(err);
+    }
+  )};
+
+  eliminar() {
+    this.presentAlertConfirm();
+  }
+
+  async presentAlertConfirm() {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'Eliminar',
+      message: '¿Esta seguro que quiere eliminar este usuario?',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          cssClass: 'secondary',
+        }, {
+          text: 'Eliminar',
+          handler: () => {
+            this.eliminarUsu();
+          }
+        }
+      ]
+    });
+
+    await alert.present();
   }
 }

@@ -3,6 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
+    <ion-title>Registrarse</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -11,6 +12,8 @@
     <ion-label id="labelAcceder">Usuario Nuevo</ion-label><br>
 
   </ion-card-header>
+
+  <ion-label *ngIf="error" id="error">Faltan datos</ion-label>
   <ion-card-content>
 
     <form (ngSubmit)="registrarse()">

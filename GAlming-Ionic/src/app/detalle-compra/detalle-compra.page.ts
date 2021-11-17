@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ServService } from "./../servicios/serv.service";
 import { ActivatedRoute } from "@angular/router";
 import { Router } from "@angular/router";
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-detalle-compra',
@@ -19,7 +20,7 @@ export class DetalleCompraPage implements OnInit {
   login = localStorage.getItem("login");
   txtBtn;
 
-  constructor(private servicio: ServService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private servicio: ServService, private route: ActivatedRoute, private router: Router, public alertController: AlertController) { }
 
   async getProducto() {
     await this.servicio.getProducto(this.idOpProducto)
@@ -56,11 +57,29 @@ export class DetalleCompraPage implements OnInit {
     await this.servicio.cambiarStock({"producto": this.producto[0].prodId, "stock": ""})
       .subscribe(res => {
         console.log(res);
-        this.router.navigateByUrl('/pedidos');
-        window.location.assign('/pedidos');
+        this.presentAlertConfirm();
       }, err => {
         console.log(err);
       })
+  }
+
+  async presentAlertConfirm() {
+    const alert = await this.alertController.create({
+      cssClass: 'my-custom-class',
+      header: 'Compra realizada',
+      message: '¡Gracias por tu compra!',
+      buttons: [
+        {
+          text: 'Confirmar',
+          handler: () => {
+            this.router.navigateByUrl('/pedidos');
+            window.location.assign('/pedidos');
+          }
+        }
+      ]
+    });
+
+    await alert.present();
   }
 
   ngOnInit() {

@@ -23,6 +23,9 @@ export class PerfilService {
     return this.httpClient.post(this.url + "updateusuario/" + localStorage.getItem('usuId'), perfil);
   }
 
-
+  eliminarUsu(idUsuario): Observable<any>
+  {
+    return this.httpClient.delete(this.url + "borrarusuario/" + idUsuario);
+  }
 
 }

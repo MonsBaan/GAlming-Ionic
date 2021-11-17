@@ -45,19 +45,19 @@
 
 #true { //texto mensaje el trabajador
   text-align: left;
-  background-color: #34495e;
-  border-color: #34495e;
+  background-color: rgb(36, 84, 112);
+  border-color: rgb(36, 84, 112);
 }
 
 .direccion {
   position: fixed;
-  color: #3880ff;
+  color: var(--ion-color-primary);
   font-size: 20px;
 }
 
 #tra {  //flecha direccion trabajador
   left: 0%;
-  color: #34495e;
+  color: rgb(36, 84, 112);
   text-align: left;
 }
 
