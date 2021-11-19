@@ -56,10 +56,6 @@ export class PerfilPage implements OnInit {
   }
 
   ionViewDidEnter() {
-    if(localStorage.getItem("login") == "0") {
-      this.router.navigateByUrl('/home');
-    }
-
     this.cargarPerfil();
   }
 

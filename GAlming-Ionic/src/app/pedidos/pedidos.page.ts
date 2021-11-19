@@ -18,10 +18,6 @@ export class PedidosPage implements OnInit {
   }
 
   ngOnInit() {
-    if(localStorage.getItem("login") == "0") {
-      this.router.navigateByUrl('/home');
-    }
-
     this.getTodosPedidos();
     this.getTipos();
   }
