@@ -14,9 +14,10 @@
   <ion-label id="stock">{{ producto[0]?.opProdStock }} en stock</ion-label>
   <ion-button *ngIf="login == 1" [class.button-disabled]="producto[0]?.opProdStock == 0" expand="full" id="btnServicio" color="primary" (click)="postNuevoServicio()">{{ txtBtn }}</ion-button>
 
-  <ion-label *ngIf="producto[0]?.opProdDescuento == 0 || producto[0]?.opProdDescuento == null" class="precio">{{ producto[0]?.opProdPrecio }}€</ion-label>
-  <ion-label *ngIf="producto[0]?.opProdDescuento != 0 && producto[0]?.opProdDescuento != null" class="precio" id="precioDescuento"><span>{{ producto[0]?.opProdPrecio }}€</span>---{{ precioDescuento }}€</ion-label>
-  <ion-label *ngIf="producto[0]?.opProdDescuento != 0 && producto[0]?.opProdDescuento != null" id="descuento">-{{ producto[0]?.opProdDescuento }}%</ion-label>
+  <ion-label *ngIf="hayDescuento" class="precio">{{ precioDescuento }}€</ion-label>
+  <ion-label class="precio precio{{hayDescuento}}">{{ producto[0]?.opProdPrecio }}€</ion-label>
+  <!-- <ion-label *ngIf="producto[0]?.opProdDescuento != 0 && producto[0]?.opProdDescuento != null" class="precio" id="precioDescuento"><span>{{ producto[0]?.opProdPrecio }}€</span>---{{ precioDescuento }}€</ion-label> -->
+  <ion-label *ngIf="hayDescuento" id="descuento">-{{ producto[0]?.opProdDescuento }}%</ion-label>
 
   <ion-label id="descTitulo">Descripcion:</ion-label>
   <ion-label id="descripcion">{{ producto[0]?.prodDescripcion }}</ion-label>

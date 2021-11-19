@@ -19,6 +19,7 @@ export class DetalleCompraPage implements OnInit {
   fechaDevol;
   login = localStorage.getItem("login");
   txtBtn;
+  hayDescuento=false;
 
   constructor(private servicio: ServService, private route: ActivatedRoute, private router: Router, public alertController: AlertController) { }
 
@@ -29,6 +30,7 @@ export class DetalleCompraPage implements OnInit {
 
         if (this.producto[0].opProdDescuento != null && this.producto[0].opProdDescuento != 0) {
           this.precioDescuento = this.producto[0].opProdPrecio - ((this.producto[0].opProdPrecio * this.producto[0].opProdDescuento) / 100);
+          this.hayDescuento=true;
         }
 
         if(this.producto[0].opProdStock == 0) {

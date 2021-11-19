@@ -19,11 +19,6 @@ ion-label {
   text-align: center;
 }
 
-#precioDescuento span {
-  text-decoration: line-through;
-  color: grey;
-}
-
 #btnServicio {
   width: 90%;
   position: relative;
@@ -33,7 +28,12 @@ ion-label {
 }
 
 .precio {
-  font-size: 22px;
+  font-size: 24px;
+}
+
+.preciotrue {
+  text-decoration: line-through;
+  color: grey;
 }
 
 #descuento {
