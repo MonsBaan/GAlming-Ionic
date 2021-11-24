@@ -19,6 +19,8 @@ export class PedidosInfoPage implements OnInit {
   ngOnInit() {
     this.pedido = JSON.parse(localStorage.getItem("pedido"));
     localStorage.removeItem("pedido");
+    console.log(this.pedido);
+
   }
 
   btnAsist() {
@@ -28,10 +30,10 @@ export class PedidosInfoPage implements OnInit {
   desc() {
     if (this.verDesc) {
       this.verDesc = false;
-      this.flecha = "ᐯ";
+      this.flecha = ">";
     }else {
       this.verDesc = true;
-      this.flecha = "ᐱ";
+      this.flecha = "ᐯ";
     }
   }
 
