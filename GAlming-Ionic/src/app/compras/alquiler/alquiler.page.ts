@@ -14,6 +14,10 @@ export class AlquilerPage implements OnInit {
   constructor(private servicio: ServService, private router: Router) { }
 
   ngOnInit() {
+  }
+
+  ionViewWillEnter() {
+    this.productos = [];
     this.getJuegosAlquiler();
   }
 

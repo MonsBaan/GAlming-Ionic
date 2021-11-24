@@ -17,6 +17,11 @@ export class ComprasPage implements OnInit {
     this.getJuegosCompra();
   }
 
+  ionViewWillEnter() {
+    this.productos = [];
+    this.getJuegosCompra();
+  }
+
   async getJuegosCompra() {
     await this.servicio.getVideojuegos("2")
       .subscribe(res => {

@@ -45,6 +45,11 @@ export class AsistenciaPage implements OnInit {
     this.getMensajes();
   }
 
+  ionViewWillEnter() {
+    this.mensajes = [];
+    this.getMensajes();
+  }
+
   crearNuevoMensaje() {
     if (this.nuevoMensaje != null && this.nuevoMensaje != "") {
       this.postMensaje({'mensaje': this.nuevoMensaje, 'servicio': this.idServicio});

@@ -89,14 +89,18 @@ export class DetalleCompraPage implements OnInit {
       this.idOpProducto = params["params"]["idProducto"];
     });
 
+  }
+
+  ionViewWillEnter() {
+    this.producto = {};
     this.getProducto();
   }
 
   postNuevoServicio() {
     if(this.producto[0].operacionDescripcion == "Compra"){
-      this.fechaDevol = "2000-01-01";
+      this.fechaDevol = new Date().toISOString().substring(0,10);
     }else{
-      this.fechaDevol = new Date(this.fechaHoy.getFullYear(), this.fechaHoy.getMonth(), this.fechaHoy.getDate()+30).toISOString().substring(0,10);
+      this.fechaDevol = "";
     }
 
     this.nuevoServicio = {

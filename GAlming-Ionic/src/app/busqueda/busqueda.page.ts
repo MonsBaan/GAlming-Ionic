@@ -20,6 +20,11 @@ export class BusquedaPage implements OnInit {
       this.stringBuscar = params["params"]["stringBuscar"];
     });
 
+
+  }
+
+  ionViewWillEnter() {
+    this.productos = [];
     this.getBusqueda(this.stringBuscar);
   }
 

@@ -13,7 +13,7 @@ export class HomePage implements OnInit {
   fotoPerfil = this.appComponent.fotoPerfil;
 
   constructor(private appComponent: AppComponent, private servicio: ServService, private router: Router) {
-    
+
   }
 
   txtBuscar;
@@ -21,6 +21,12 @@ export class HomePage implements OnInit {
   items = [];
 
   ngOnInit() {
+
+  }
+
+  ionViewWillEnter() {
+    this.tipoProducto = [];
+    this.items = [];
     this.getTipos();
   }
 

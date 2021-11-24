@@ -103,6 +103,6 @@
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
     <plugin name="cordova-plugin-geolocation" spec="^4.0.1" />
     <edit-config file="*-Info-plist" mode="merge" target="NSLocationWhenInUseUsageDescription">
-      <string>Necesita localizacion</string>
+        <string>Necesita localizacion</string>
     </edit-config>
 </widget>

@@ -22,6 +22,13 @@ export class PedidosPage implements OnInit {
     this.getTipos();
   }
 
+  ionViewWillEnter() {
+    this.tipos = [];
+    this.pedidos = [];
+    this.getTodosPedidos();
+    this.getTipos();
+  }
+
   async getTodosPedidos() {
     const loading = await this.loadingController.create({
       message: 'Cargando...'
